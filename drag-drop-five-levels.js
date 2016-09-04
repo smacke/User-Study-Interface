@@ -18,16 +18,6 @@ $(function() {
             $(this).animate({width: 150,height: 100}, 100);
         });
 
-    // $(".ts-level").hover(
-    //     // Mouse Over
-    //     function(){
-    //         $(this).animate({width: 1000,height: 200}, 100);
-    //     },
-    //     // Mouse Out
-    //     function(){
-    //         $(this).animate({width: 50,height: 34}, 100);
-    //     });
-
     $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable({
         revert: true,
         connectWith: "#DataCollection, #level1, #level2, #level3, #level4, #level5",
@@ -46,17 +36,6 @@ $(function() {
                     function(){
                         $(this).animate({width: 150,height: 100}, 100);
                     });
-                    //
-                    // function(e){
-                    //     var x = e.clientX,
-                    //         y = e.clientY;
-                    //     $(" #full img")[0].src = $(this).attr('src');
-                    //     $(" #full").css({top: y, left : x}).show();
-                    // },
-                    //
-                    // function(){
-                    //     $('#full').hide();
-                    // });
             }
             else {
                 ui.item.removeClass("ts-dc");
@@ -64,17 +43,7 @@ $(function() {
                 ui.item.unbind('mouseenter mouseleave');
                 ui.item.animate({width: 50,height: 34}, 100);
                 ui.item.hover(
-                    // // Mouse Over
-                    // function(){
-                    //     $(this).animate({width: 300,height: 200}, 100);
-                    //
-                    // },
-                    // // Mouse Out
-                    // function(){
-                    //     $(this).animate({width: 50,height: 34}, 100);
-                    // });
-                    //
-
+                    // Mouse Over
                     function(e){
                         var x = e.clientX,
                             y = e.clientY;
@@ -86,7 +55,7 @@ $(function() {
                             $(" #full").css({top:y, left:x}).show();
                         }
                     },
-
+                    // Mouse Out
                     function(){
                         $('#full').stop(true,true).hide();
                     });
@@ -104,6 +73,14 @@ $(function() {
 
     $( "#submit" ).button().click(function( event ) {
         event.preventDefault();
+
+        var data = $("#level1").sortable("serialize");
+        $.ajax({
+            data: data,
+            type: "POST",
+            url: "drag-drop-five-levels-submit.php"
+        });
+
         alert("Finished. Thank you!");
     });
 

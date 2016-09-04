@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User study interface of similarity metrics</title>
+
+    <!--import jQuery-->
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.0/jquery-ui.css" />
+    <script src="lib/jquery-ui-1.12.0/external/jquery/jquery.js"></script>
+    <script src="lib/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+
+    <script src="myScript.js"></script>
+    <link rel="stylesheet" href="myCSS.css">
+</head>
+<body>
+
+<div id="container">
+
+    <div id="Query">
+        <b>Query</b>
+        <img src="./data/query1/query.png">
+    </div>
+
+    <div id="Top-k-container">
+        <b>Top-k (k=5, enter the similarity score below the figure)</b><br>
+        <div id="Top-k"></div>>
+    </div>
+
+    <div id="DataCollection">
+        <b>Data Collection</b><br>
+        <div id="ts1-container">
+            <img src="./data/query1/ts1.png" ><br>
+            <input hidden="hidden" id="ts1-input">
+        </div>
+        <div id="ts2-container">
+            <img src="./data/query1/ts2.png" ><br>
+            <input id="ts2-input">
+        </div>
+        <div id="ts3-container">
+            <img src="./data/query1/ts3.png" ><br>
+            <input id="ts3-input">
+        </div>
+        <div id="ts4-container">
+            <img src="./data/query1/ts4.png" ><br>
+            <input id="ts4-input">
+        </div>
+        <div id="ts5-container">
+            <img src="./data/query1/ts5.png" ><br>
+            <input hidden="hidden" id="ts5-input">
+        </div>
+        <div id="ts6-container">
+            <img src="./data/query1/ts6.png" ><br>
+            <input id="ts6-input">
+        </div>
+        <div id="ts7-container">
+            <img src="./data/query1/ts7.png" ><br>
+            <input id="ts7-input">
+        </div>
+        <div id="ts8-container">
+            <img src="./data/query1/ts8.png" ><br>
+            <input id="ts8-input">
+        </div>
+        <div id="ts9-container">
+            <img src="./data/query1/ts9.png" ><br>
+            <input hidden="hidden" id="ts9-input">
+        </div>
+        <div id="ts10-container">
+            <img src="./data/query1/ts10.png" ><br>
+            <input id="ts10-input">
+        </div>
+        <div id="ts11-container">
+            <img src="./data/query1/ts11.png" ><br>
+            <input id="ts11-input">
+        </div>
+        <div id="ts12-container">
+            <img src="./data/query1/ts12.png" ><br>
+            <input id="ts12-input">
+        </div>
+        <div id="ts13-container">
+            <img src="./data/query1/ts13.png" ><br>
+            <input hidden="hidden" id="ts13-input">
+        </div>
+    </div>
+
+    <div id="Questions">
+        <header>Questions</header>
+        <b>
+            Q1. How difficult was this task?
+        </b><br>
+        <input type="text" name="firstname"><br>
+        <b>
+            Q2. How confident are you in reproducing the same results second time around?
+        </b><br>
+        <input type="text" name="firstname"><br>
+        <b>
+            Q3. What are the outstanding features or standards of your top-k ranking results?
+        </b><br>
+        <input type="text" name="firstname"><br>
+    </div>
+
+    <div>
+        <button id="freeze">Freeze</button>
+        <input id="submit" type="submit" value="Submit">
+    </div>
+
+</div>
+
+</body>
+</html>

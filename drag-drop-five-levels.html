@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User study interface of similarity metrics</title>
+
+    <!--import jQuery-->
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.0/jquery-ui.css" />
+    <script src="lib/jquery-ui-1.12.0/external/jquery/jquery.js"></script>
+    <script src="lib/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+
+    <script src="drag-drop-five-levels.js"></script>
+    <link rel="stylesheet" href="drag-drop-five-levels.css">
+</head>
+<body>
+
+<div id="container">
+
+    <div id="Query">
+        <b>Query</b><br>
+        <img src="./data/query1/query.png">
+    </div>
+
+    <div id="full"><img src="" /></div>
+    <div id="five-levels">
+        <b>Five similarity bins (1 for least similar; 5 for most similar)</b><br>
+        <div id="level1-container">
+            Bin 1<br>
+            <div id="level1"></div>
+        </div>
+        <div id="level2-container">
+            Bin 2<br>
+            <div id="level2"></div>
+        </div>
+        <div id="level3-container">
+            Bin 3<br>
+            <div id="level3"></div>
+        </div>
+        <div id="level4-container">
+            Bin 4<br>
+            <div id="level4"></div>
+        </div>
+        <div id="level5-container">
+            Bin 5<br>
+            <div id="level5"></div>
+        </div>
+    </div>
+
+    <div id="DataCollection">
+        <b>Data Collection</b><br>
+        <img src="./data/query1/ts1.png" class="ts-dc">
+        <img src="./data/query1/ts2.png" class="ts-dc">
+        <img src="./data/query1/ts3.png" class="ts-dc">
+        <img src="./data/query1/ts4.png" class="ts-dc">
+        <img src="./data/query1/ts5.png" class="ts-dc">
+        <img src="./data/query1/ts6.png" class="ts-dc">
+        <img src="./data/query1/ts7.png" class="ts-dc">
+        <img src="./data/query1/ts8.png" class="ts-dc">
+        <img src="./data/query1/ts9.png" class="ts-dc">
+        <img src="./data/query1/ts10.png" class="ts-dc">
+        <img src="./data/query1/ts11.png" class="ts-dc">
+        <img src="./data/query1/ts12.png" class="ts-dc">
+        <img src="./data/query1/ts13.png" class="ts-dc">
+        <img src="./data/query1/ts14.png" class="ts-dc">
+    </div>
+
+    <div id="Questions">
+        <header><b>Questions</b><br><br></header>
+        Q1. How difficult was this task? (1 for simplest; 5 for most difficult)<br>
+        <div id="q1" class="bullet">
+            <input type="radio" id="q1-r1" name="q1"><label for="q1-r1">1</label>
+            <input type="radio" id="q1-r2" name="q1"><label for="q1-r2">2</label>
+            <input type="radio" id="q1-r3" name="q1"><label for="q1-r3">3</label>
+            <input type="radio" id="q1-r4" name="q1"><label for="q1-r4">4</label>
+            <input type="radio" id="q1-r5" name="q1"><label for="q1-r5">5</label>
+        </div>
+        <br><br>
+        Q2. How confident are you in reproducing the same results second time around? (1 for least confident; 5 for most confident)<br>
+        <div id="q2" class="bullet">
+            <input type="radio" id="q2-r1" name="q2"><label for="q2-r1">1</label>
+            <input type="radio" id="q2-r2" name="q2"><label for="q2-r2">2</label>
+            <input type="radio" id="q2-r3" name="q2"><label for="q2-r3">3</label>
+            <input type="radio" id="q2-r4" name="q2"><label for="q2-r4">4</label>
+            <input type="radio" id="q2-r5" name="q2"><label for="q2-r5">5</label>
+        </div>
+        <br><br>
+        Q3. What features of the query and the data collection did you compare while determining similarity?<br>
+        <input type="text" ><br>
+    </div>
+
+    <div>
+        <button id="freeze">Freeze</button>
+        <input id="submit" type="submit" value="Submit">
+    </div>
+
+</div>
+
+</body>
+</html>

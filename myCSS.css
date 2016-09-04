@@ -1,0 +1,25 @@
+#container { width:1250px; }
+
+#Query { background-color:#FFD700; height:200px; width:300px; float:left; }
+
+#Query img { border:0px; width:280px; height:180px;}
+
+#Top-k-container { background-color:#EEEEEE; height:200px; width:950px; float:left;}
+
+#Top-k { height:180px; width:950px; float:left; overflow:scroll; }
+
+#Top-k div { float:left; }
+
+#Top-k img { border:0px; height:120px; margin: 3px 3px 3px 0; padding: 1px; float: left;}
+
+#Top-k input { display:block; type:number; }
+
+#DataCollection { background-color:#a9b6ff; height:400px; width:1250px; overflow:scroll; }
+
+#DataCollection div { float:left; }
+
+#DataCollection img { border:0; height:180px; margin: 3px 3px 3px 0; padding: 1px; float: left;}
+
+#DataCollection input { display:none;}
+
+#Questions { background-color:#fff1dc; height:150px; display:none; }

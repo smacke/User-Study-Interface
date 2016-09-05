@@ -74,9 +74,37 @@ $(function() {
     $( "#submit" ).button().click(function( event ) {
         event.preventDefault();
 
-        var data = $("#level1").sortable("serialize");
+        var data1 = $("#level1").sortable("serialize");
         $.ajax({
-            data: data,
+            data: data1,
+            type: "POST",
+            url: "drag-drop-five-levels-submit.php"
+        });
+
+        var data2 = $("#level2").sortable("serialize");
+        $.ajax({
+            data: data2,
+            type: "POST",
+            url: "drag-drop-five-levels-submit.php"
+        });
+
+        var data3 = $("#level3").sortable("serialize");
+        $.ajax({
+            data: data3,
+            type: "POST",
+            url: "drag-drop-five-levels-submit.php"
+        });
+
+        var data4 = $("#level4").sortable("serialize");
+        $.ajax({
+            data: data4,
+            type: "POST",
+            url: "drag-drop-five-levels-submit.php"
+        });
+
+        var data5 = $("#level5").sortable("serialize");
+        $.ajax({
+            data: data5,
             type: "POST",
             url: "drag-drop-five-levels-submit.php"
         });

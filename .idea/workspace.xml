@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="744d8ac4-6e68-4771-bb8a-edf51e657774" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/drag-drop-five-levels-submit.php" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/newfile.txt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/drag-drop-five-levels.html" afterPath="$PROJECT_DIR$/drag-drop-five-levels.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UserResults/newfile1.txt" afterPath="$PROJECT_DIR$/UserResults/newfile1.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/drag-drop-five-levels-submit.php" afterPath="$PROJECT_DIR$/drag-drop-five-levels-submit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/drag-drop-five-levels.js" afterPath="$PROJECT_DIR$/drag-drop-five-levels.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.php" afterPath="$PROJECT_DIR$/test.php" />
     </list>
     <ignored path="SimilarityMetrics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,8 +49,8 @@
       <file leaf-file-name="drag-drop-five-levels.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/drag-drop-five-levels.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+            <state relative-caret-position="142">
+              <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
               <folding>
                 <element signature="e#190#261#0" expanded="false" />
                 <element signature="e#302#373#0" expanded="false" />
@@ -66,8 +64,8 @@
       <file leaf-file-name="drag-drop-five-levels-submit.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/drag-drop-five-levels-submit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+            <state relative-caret-position="135">
+              <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -241,12 +239,12 @@
       <option name="presentableId" value="Default" />
       <updated>1473012789941</updated>
       <workItem from="1473012791238" duration="859000" />
-      <workItem from="1473019352350" duration="3341000" />
+      <workItem from="1473019352350" duration="4682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4200000" />
+    <option name="totallyTimeSpent" value="5541000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="23" width="1239" height="777" extended-state="6" />
@@ -290,17 +288,6 @@
           <url>file://$PROJECT_DIR$/drag-drop-five-levels.js</url>
           <line>13</line>
           <properties />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/drag-drop-five-levels.js</url>
-          <line>77</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/drag-drop-five-levels-submit.php</url>
-          <line>6</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="4" />
@@ -373,8 +360,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/drag-drop-five-levels.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="78" column="19" selection-start-line="78" selection-start-column="19" selection-end-line="78" selection-end-column="19" />
+        <state relative-caret-position="142">
+          <caret line="97" column="50" selection-start-line="97" selection-start-column="50" selection-end-line="97" selection-end-column="50" />
           <folding>
             <element signature="e#190#261#0" expanded="false" />
             <element signature="e#302#373#0" expanded="false" />
@@ -386,8 +373,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/drag-drop-five-levels-submit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="2" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
+        <state relative-caret-position="135">
+          <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
           <folding />
         </state>
       </provider>

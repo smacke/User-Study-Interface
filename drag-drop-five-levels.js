@@ -44,10 +44,10 @@ $(function() {
                             y = e.clientY;
                         $(" #full img")[0].src = $(this).attr('src');
                         if ( ( 2 * x ) > $("#container").width() ) {
-                            $(" #full").css({top:y, left: (x-300) }).show();
+                            $(" #full").css({top:y+1, left: (x-300-1) }).show();
                         }
                         else {
-                            $(" #full").css({top:y, left:x}).show();
+                            $(" #full").css({top:y+1, left:x+1}).show();
                         }
                     },
                     // Mouse Out

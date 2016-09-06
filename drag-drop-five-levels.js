@@ -3,6 +3,13 @@
  */
 
 $(function() {
+
+    $(".tools").change(function() {
+        if (this.value === "other") {
+            $("#other-text").toggle();
+        }
+    });
+
     $(".ts-dc").hover(
         // Mouse Over
         function(){
@@ -75,14 +82,26 @@ $(function() {
                 var idOfSet = "".concat(idOfThis, "_set");
                 $("#".concat(idOfSet)).val(set.join(";"));
             });
+
         }
     });
 
     $( "#submit" ).click(function(event) {
-        var features = document.forms["Questions"]["features"].value;
+        $("#other-checkbox").val(document.getElementById("other-text").value);
+        var toolsList = [];
+        $.each($("input[name='tools']:checked"), function(){
+            toolsList.push($(this).val());
+        });
+        $("#tools_answer").val(toolsList.join(";"));
 
-        if( $('input[name=difficulty]:checked').length == 0 || $('input[name=confidence]:checked').length == 0 || features == null || features == "") {
-            alert("All question must be answered!");
+        var features = document.forms["Questions"]["features"].value;
+        if( $('input[name=difficulty]:checked').length == 0 ||
+            $('input[name=confidence]:checked').length == 0 ||
+            features == null || features == "" ||
+            $('input[name=gender]:checked').length == 0 ||
+            $('input[name=experience]:checked').length == 0 ||
+            $('input[name=tools]:checked').length == 0 ) {
+            alert("All questions and survey must be answered!");
             event.preventDefault();
         }
     });

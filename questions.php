@@ -48,6 +48,16 @@ fwrite($myfile, test_input($_POST["confidence"]));
 fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["features"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["gender"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["experience"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["tools_answer"]));
+
 fwrite($myfile,"\n");
 
 flock($myfile, LOCK_UN);

@@ -3,10 +3,11 @@
 </b>
 
 <?php
-$myfile = fopen("UserResults/userData.txt", "a") or die("Unable to open file!");
+date_default_timezone_set("America/Chicago");
+$currentTime = date("Y-m-d-h-i-sa");
+$myfile = fopen("UserResults/" . $currentTime . ".txt", "a") or die("Unable to open file!");
 
 //submit time
-date_default_timezone_set("America/Chicago");
 fwrite($myfile,"Chicago Time: ");
 fwrite($myfile, date("Y-m-d h:i:sa"));
 fwrite($myfile,"\n");

@@ -22,75 +22,79 @@
     </div>
 
     <div id="full"><img src="" /></div>
+
     <div id="five-levels">
         <b>Five similarity bins (1 for least similar; 5 for most similar)</b><br>
         <div id="level1-container">
             Bin 1<br>
-            <div id="level1"></div>
+            <div id="level1" class="level-set"></div>
         </div>
         <div id="level2-container">
             Bin 2<br>
-            <div id="level2"></div>
+            <div id="level2" class="level-set"></div>
         </div>
         <div id="level3-container">
             Bin 3<br>
-            <div id="level3"></div>
+            <div id="level3" class="level-set"></div>
         </div>
         <div id="level4-container">
             Bin 4<br>
-            <div id="level4"></div>
+            <div id="level4" class="level-set"></div>
         </div>
         <div id="level5-container">
             Bin 5<br>
-            <div id="level5"></div>
+            <div id="level5" class="level-set"></div>
         </div>
     </div>
 
     <div id="DataCollection">
         <b>Data Collection</b><br>
-        <img id="ts_1" src="./data/query1/ts1.png" class="ts-dc">
-        <img id="ts_2" src="./data/query1/ts2.png" class="ts-dc">
-        <img id="ts_3" src="./data/query1/ts3.png" class="ts-dc">
-        <img id="ts_4" src="./data/query1/ts4.png" class="ts-dc">
-        <img id="ts_5" src="./data/query1/ts5.png" class="ts-dc">
-        <img id="ts_6" src="./data/query1/ts6.png" class="ts-dc">
-        <img id="ts_7" src="./data/query1/ts7.png" class="ts-dc">
-        <img id="ts_8" src="./data/query1/ts8.png" class="ts-dc">
-        <img id="ts_9" src="./data/query1/ts9.png" class="ts-dc">
-        <img id="ts_10" src="./data/query1/ts10.png" class="ts-dc">
-        <img id="ts_11" src="./data/query1/ts11.png" class="ts-dc">
-        <img id="ts_12" src="./data/query1/ts12.png" class="ts-dc">
-        <img id="ts_13" src="./data/query1/ts13.png" class="ts-dc">
-        <img id="ts_14" src="./data/query1/ts14.png" class="ts-dc">
+        <img id="1" src="./data/query1/ts1.png" class="ts-dc">
+        <img id="2" src="./data/query1/ts2.png" class="ts-dc">
+        <img id="3" src="./data/query1/ts3.png" class="ts-dc">
+        <img id="4" src="./data/query1/ts4.png" class="ts-dc">
+        <img id="5" src="./data/query1/ts5.png" class="ts-dc">
+        <img id="6" src="./data/query1/ts6.png" class="ts-dc">
+        <img id="7" src="./data/query1/ts7.png" class="ts-dc">
+        <img id="8" src="./data/query1/ts8.png" class="ts-dc">
+        <img id="9" src="./data/query1/ts9.png" class="ts-dc">
+        <img id="10" src="./data/query1/ts10.png" class="ts-dc">
+        <img id="11" src="./data/query1/ts11.png" class="ts-dc">
+        <img id="12" src="./data/query1/ts12.png" class="ts-dc">
+        <img id="13" src="./data/query1/ts13.png" class="ts-dc">
+        <img id="14" src="./data/query1/ts14.png" class="ts-dc">
     </div>
 
-    <div id="Questions">
+    <form id="Questions" method="POST" action="questions.php">
+        <input type="hidden" id="level1_set" name="level1_set" value="" />
+        <input type="hidden" id="level2_set" name="level2_set" value="" />
+        <input type="hidden" id="level3_set" name="level3_set" value="" />
+        <input type="hidden" id="level4_set" name="level4_set" value="" />
+        <input type="hidden" id="level5_set" name="level5_set" value="" />
+
         <header><b>Questions</b><br><br></header>
         Q1. How difficult was this task? (1 for simplest; 5 for most difficult)<br>
-        <div id="q1" class="bullet">
-            <input type="radio" id="q1-r1" name="q1"><label for="q1-r1">1</label>
-            <input type="radio" id="q1-r2" name="q1"><label for="q1-r2">2</label>
-            <input type="radio" id="q1-r3" name="q1"><label for="q1-r3">3</label>
-            <input type="radio" id="q1-r4" name="q1"><label for="q1-r4">4</label>
-            <input type="radio" id="q1-r5" name="q1"><label for="q1-r5">5</label>
-        </div>
+        <input type="radio" name="difficulty" value="1">1
+        <input type="radio" name="difficulty" value="2">2
+        <input type="radio" name="difficulty" value="3">3
+        <input type="radio" name="difficulty" value="4">4
+        <input type="radio" name="difficulty" value="5">5
         <br><br>
         Q2. How confident are you in reproducing the same results second time around? (1 for least confident; 5 for most confident)<br>
-        <div id="q2" class="bullet">
-            <input type="radio" id="q2-r1" name="q2"><label for="q2-r1">1</label>
-            <input type="radio" id="q2-r2" name="q2"><label for="q2-r2">2</label>
-            <input type="radio" id="q2-r3" name="q2"><label for="q2-r3">3</label>
-            <input type="radio" id="q2-r4" name="q2"><label for="q2-r4">4</label>
-            <input type="radio" id="q2-r5" name="q2"><label for="q2-r5">5</label>
-        </div>
+        <input type="radio" name="confidence" value="1">1
+        <input type="radio" name="confidence" value="2">2
+        <input type="radio" name="confidence" value="3">3
+        <input type="radio" name="confidence" value="4">4
+        <input type="radio" name="confidence" value="5">5
         <br><br>
         Q3. What features of the query and the data collection did you compare while determining similarity?<br>
-        <input type="text" ><br>
-    </div>
+        <textarea name="features" rows="1" cols="40" ></textarea><br>
+        <input id="submit" type="submit" value="Submit">
+    </form>
 
     <div>
         <button id="freeze">Freeze</button>
-        <input id="submit" type="submit" value="Submit">
+        <!--<input id="submit" type="submit" value="Submit">-->
     </div>
 
 </div>

@@ -1,6 +1,6 @@
 submit time,
-which user,
-query number,
+which user, -- not yet
+query index,
 bin 1's time series,
 bin 2's time series,
 bin 3's time series,

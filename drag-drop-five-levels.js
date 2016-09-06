@@ -3,11 +3,6 @@
  */
 
 $(function() {
-
-    $( "#q1, #q2" ).buttonset();
-
-    $( "#submit").button().hide();
-
     $(".ts-dc").hover(
         // Mouse Over
         function(){
@@ -60,7 +55,7 @@ $(function() {
                         $('#full').stop(true,true).hide();
                     });
             }
-        }
+        },
     }).disableSelection();
 
     $( "#freeze" ).button().click(function( event ) {
@@ -68,48 +63,17 @@ $(function() {
         $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable( "option", "disabled", true );
         $("#Questions").css("display", "block");
         $( "#freeze" ).button().hide();
-        $( "#submit").button().show();
+
+        $(".level-set").each(function(i,obj){
+            var idOfThis = obj.id;
+            var set = $("#".concat(idOfThis)).sortable("toArray");
+            var idOfSet = "".concat(idOfThis, "_set");
+            $("#".concat(idOfSet)).val(set.join(","));
+        });
     });
 
-    $( "#submit" ).button().click(function( event ) {
-        event.preventDefault();
-
-        var data1 = $("#level1").sortable("serialize");
-        $.ajax({
-            data: data1,
-            type: "POST",
-            url: "drag-drop-five-levels-submit.php"
-        });
-
-        var data2 = $("#level2").sortable("serialize");
-        $.ajax({
-            data: data2,
-            type: "POST",
-            url: "drag-drop-five-levels-submit.php"
-        });
-
-        var data3 = $("#level3").sortable("serialize");
-        $.ajax({
-            data: data3,
-            type: "POST",
-            url: "drag-drop-five-levels-submit.php"
-        });
-
-        var data4 = $("#level4").sortable("serialize");
-        $.ajax({
-            data: data4,
-            type: "POST",
-            url: "drag-drop-five-levels-submit.php"
-        });
-
-        var data5 = $("#level5").sortable("serialize");
-        $.ajax({
-            data: data5,
-            type: "POST",
-            url: "drag-drop-five-levels-submit.php"
-        });
-
-        alert("Finished. Thank you!");
-    });
+    // $( "#submit" ).click(function() {
+    //     alert("Finished. Thank you!");
+    // });
 
 });

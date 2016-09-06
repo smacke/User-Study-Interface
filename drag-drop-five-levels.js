@@ -60,20 +60,32 @@ $(function() {
 
     $( "#freeze" ).click(function( event ) {
         event.preventDefault();
-        $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable( "option", "disabled", true );
-        $("#Questions").css("display", "block");
-        $( "#freeze" ).button().hide();
+        var tsOfDataCollection = $(".ts-dc").length;
 
-        $(".level-set").each(function(i,obj){
-            var idOfThis = obj.id;
-            var set = $("#".concat(idOfThis)).sortable("toArray");
-            var idOfSet = "".concat(idOfThis, "_set");
-            $("#".concat(idOfSet)).val(set.join(","));
-        });
+        if (tsOfDataCollection != 0) {
+            alert("All time series in Data Collection must be classified!");
+        }
+        else {
+            $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable( "option", "disabled", true );
+            $("#Questions").css("display", "block");
+            $( "#freeze" ).button().hide();
+
+            $(".level-set").each(function(i,obj){
+                var idOfThis = obj.id;
+                var set = $("#".concat(idOfThis)).sortable("toArray");
+                var idOfSet = "".concat(idOfThis, "_set");
+                $("#".concat(idOfSet)).val(set.join(","));
+            });
+        }
     });
 
-    // $( "#submit" ).click(function() {
-    //     alert("Finished. Thank you!");
-    // });
+    $( "#submit" ).click(function(event) {
+        var features = document.forms["Questions"]["features"].value;
+
+        if( $('input[name=difficulty]:checked').length == 0 || $('input[name=confidence]:checked').length == 0 || features == null || features == "") {
+            alert("All question must be answered!");
+            event.preventDefault();
+        }
+    });
 
 });

@@ -4,16 +4,15 @@
 
 <?php
 function openFile() {
-    $currentTime = date("Y-m-d-h-i-sa");
-    $fileName = "UserResults/" . $currentTime . ".txt";
+    $fileName = "UserResults/" . test_input($_POST["query_index"]) . ".csv";
+    $myfile = fopen($fileName, "a");
 
-    if (file_exists ( $fileName )) {
-        sleep(1);
-        return openFile();
-    }
-    else{
-        $myfile = fopen($fileName, "a") or die("Unable to open file!");
+    if (flock($myfile, LOCK_EX)) {
         return $myfile;
+    }
+    else {
+        fclose($myfile);
+        return openFile();
     }
 }
 
@@ -23,43 +22,49 @@ $myfile = openFile();
 //submit time
 fwrite($myfile,"Chicago Time: ");
 fwrite($myfile, date("Y-m-d h:i:sa"));
-fwrite($myfile,"\n");
-
-//query index
-fwrite($myfile,"1\n");
+fwrite($myfile,",");
 
 //bin 1~5
 fwrite($myfile, test_input($_POST["level1_set"]));
-fwrite($myfile,"\n");
+fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["level2_set"]));
-fwrite($myfile,"\n");
+fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["level3_set"]));
-fwrite($myfile,"\n");
+fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["level4_set"]));
-fwrite($myfile,"\n");
+fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["level5_set"]));
-fwrite($myfile,"\n");
+fwrite($myfile,",");
 
 //questions
 fwrite($myfile, test_input($_POST["difficulty"]));
-fwrite($myfile,"\n");
+fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["confidence"]));
-fwrite($myfile,"\n");
+fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["features"]));
 fwrite($myfile,"\n");
 
+flock($myfile, LOCK_UN);
 fclose($myfile);
 
 function test_input($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
+
+    $order = array("\n", "\r");
+    $replace = "\t";
+    $data = str_replace($order, $replace, $data);
+
+    $order = (",");
+    $replace = ";";
+    $data = str_replace($order, $replace, $data);
     return $data;
 }
 ?>

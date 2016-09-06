@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>User study interface of similarity metrics</title>
 
-    <!--import jQuery-->
+    <!--import library-->
     <link rel="stylesheet" href="lib/jquery-ui-1.12.0/jquery-ui.css" />
     <script src="lib/jquery-ui-1.12.0/external/jquery/jquery.js"></script>
     <script src="lib/jquery-ui-1.12.0/jquery-ui.min.js"></script>
@@ -68,6 +68,8 @@
     </div>
 
     <form id="Questions" method="POST" action="questions.php">
+        <input type="hidden" id="query_index" name="query_index" value="query1" />
+
         <input type="hidden" id="level1_set" name="level1_set" value="" />
         <input type="hidden" id="level2_set" name="level2_set" value="" />
         <input type="hidden" id="level3_set" name="level3_set" value="" />
@@ -90,7 +92,7 @@
         <input type="radio" name="confidence" value="5">5
         <br><br>
         Q3. What features of the query and the data collection did you compare while determining similarity?<br>
-        <textarea name="features" rows="1" cols="40" ></textarea><br>
+        <textarea name="features" rows="6" cols="50" ></textarea><br>
         <input id="submit" type="submit" value="Submit">
     </form>
 

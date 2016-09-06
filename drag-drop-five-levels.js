@@ -38,7 +38,6 @@ $(function() {
                 ui.item.unbind('mouseenter mouseleave');
                 ui.item.animate({width: 50,height: 34}, 100);
                 ui.item.hover(
-                    // Mouse Over
                     function(e){
                         var x = e.clientX,
                             y = e.clientY;
@@ -74,7 +73,7 @@ $(function() {
                 var idOfThis = obj.id;
                 var set = $("#".concat(idOfThis)).sortable("toArray");
                 var idOfSet = "".concat(idOfThis, "_set");
-                $("#".concat(idOfSet)).val(set.join(","));
+                $("#".concat(idOfSet)).val(set.join(";"));
             });
         }
     });

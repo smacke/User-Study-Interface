@@ -1,11 +1,1 @@
-submit time,
-which user, -- not yet
-query index,
-bin 1's time series,
-bin 2's time series,
-bin 3's time series,
-bin 4's time series,
-bin 5's time series,
-Q1's answer,
-Q2's answer,
-Q3's answer,
+Submission Time, Bin1, Bin 2, Bin 3, Bin 4, Bin 5, Q1, Q2,Q3

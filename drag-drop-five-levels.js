@@ -58,7 +58,7 @@ $(function() {
         },
     }).disableSelection();
 
-    $( "#freeze" ).button().click(function( event ) {
+    $( "#freeze" ).click(function( event ) {
         event.preventDefault();
         $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable( "option", "disabled", true );
         $("#Questions").css("display", "block");

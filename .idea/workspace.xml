@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="744d8ac4-6e68-4771-bb8a-edf51e657774" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/questions.php" afterPath="$PROJECT_DIR$/questions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/drag-drop-five-levels.html" afterPath="$PROJECT_DIR$/drag-drop-five-levels.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/drag-drop-five-levels.js" afterPath="$PROJECT_DIR$/drag-drop-five-levels.js" />
     </list>
     <ignored path="SimilarityMetrics.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,18 +27,18 @@
       <file leaf-file-name="drag-drop-five-levels.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/drag-drop-five-levels.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+            <state relative-caret-position="506">
+              <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="questions.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="questions.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/questions.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+            <state relative-caret-position="210">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -53,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="drag-drop-five-levels.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="drag-drop-five-levels.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/drag-drop-five-levels.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="76" column="10" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
+            <state relative-caret-position="420">
+              <caret line="69" column="46" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
               <folding>
                 <element signature="e#119#190#0" expanded="false" />
                 <element signature="e#533#2138#0" expanded="false" />
@@ -86,9 +87,9 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/drag-drop-five-levels-submit.php" />
+        <option value="$PROJECT_DIR$/questions.php" />
         <option value="$PROJECT_DIR$/drag-drop-five-levels.html" />
         <option value="$PROJECT_DIR$/drag-drop-five-levels.js" />
-        <option value="$PROJECT_DIR$/questions.php" />
       </list>
     </option>
   </component>
@@ -235,12 +236,12 @@
       <option name="presentableId" value="Default" />
       <updated>1473012789941</updated>
       <workItem from="1473012791238" duration="859000" />
-      <workItem from="1473019352350" duration="15654000" />
+      <workItem from="1473019352350" duration="15826000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16513000" />
+    <option name="totallyTimeSpent" value="16685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="41" y="23" width="1239" height="777" extended-state="6" />
@@ -344,14 +345,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drag-drop-five-levels.js">
+    <entry file="file://$PROJECT_DIR$/drag-drop-five-levels.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="76" column="10" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
-          <folding>
-            <element signature="e#119#190#0" expanded="false" />
-            <element signature="e#533#2138#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="506">
+          <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/questions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -363,19 +369,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drag-drop-five-levels.html">
+    <entry file="file://$PROJECT_DIR$/drag-drop-five-levels.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/questions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="420">
+          <caret line="69" column="46" selection-start-line="69" selection-start-column="46" selection-end-line="69" selection-end-column="46" />
+          <folding>
+            <element signature="e#119#190#0" expanded="false" />
+            <element signature="e#533#2138#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

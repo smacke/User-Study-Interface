@@ -1,6 +1,6 @@
 html, body {width:100%;height:100%;}
 
-#container { width:100%;  height:100%; }
+#container { width:100%;  height:100%; font-size:16px;}
 
     #Query { background-color:#FFD700; height:30%; width:24%; float:left; }
 
@@ -22,7 +22,7 @@ html, body {width:100%;height:100%;}
 
         #DataCollection img { border:0; height:100px; width:150px; margin: 2px; padding: 1px; float: left;}
 
-    #Questions { background-color:#fff1dc; width:100%; display:none; }
+    #Questions { background-color:#fff1dc; width:100%; display:none;font-size:17px;}
 
         #other-text { display:none; }
 

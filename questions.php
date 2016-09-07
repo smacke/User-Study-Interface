@@ -51,6 +51,21 @@ fwrite($myfile,",");
 fwrite($myfile, test_input($_POST["features"]));
 fwrite($myfile,",");
 
+fwrite($myfile, test_input($_POST["bin1-features"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["bin2-features"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["bin3-features"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["bin4-features"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["bin5-features"]));
+fwrite($myfile,",");
+
 fwrite($myfile, test_input($_POST["gender"]));
 fwrite($myfile,",");
 

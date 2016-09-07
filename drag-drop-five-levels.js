@@ -74,7 +74,7 @@ $(function() {
         var tsOfDataCollection = $(".ts-dc").length;
 
         if (tsOfDataCollection != 0) {
-            alert("All time series in Data Collection must be classified!");
+            alert("All time series in Data collection must be classified!");
         }
         else {
             $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable( "option", "disabled", true );

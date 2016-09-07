@@ -12,6 +12,7 @@ function openFile() {
     }
     else {
         fclose($myfile);
+        sleep(1);
         return openFile();
     }
 }

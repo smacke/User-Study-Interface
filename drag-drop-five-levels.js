@@ -3,6 +3,10 @@
  */
 
 $(function() {
+    $( "#accordion" ).accordion({
+        collapsible: true,
+        heightStyle: "content"
+    });
 
     $(".tools").change(function() {
         if (this.value === "other") {

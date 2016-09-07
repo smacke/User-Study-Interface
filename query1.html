@@ -88,21 +88,21 @@
         <input type="hidden" id="level5_set" name="level5_set" value="" />
 
         <b>Questions</b><br>
-        Q1. How difficult was this task? (1 for simplest; 5 for most difficult)<br>
+        Q1. How difficult was this task? (1 = Very Easy; 2 = Easy; 3 = Moderate; 4 = Difficult; 5 = Very Difficult)<br>
         <input type="radio" name="difficulty" value="1" id="q1-1"><label for="q1-1">1</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="difficulty" value="2" id="q1-2"><label for="q1-2">2</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="difficulty" value="3" id="q1-3"><label for="q1-3">3</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="difficulty" value="4" id="q1-4"><label for="q1-4">4</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="difficulty" value="5" id="q1-5"><label for="q1-5">5</label>
         <br><br>
-        Q2. How confident are you in reproducing the same results second time around? (1 for least confident; 5 for most confident)<br>
+        Q2. How confident are you in reproducing the same ratings second time around? (1 = Not at all; 2 = Very Low; 3 = Moderate; 4 = Confident; 5 = Very Confident)<br>
         <input type="radio" name="confidence" value="1" id="q2-1"><label for="q2-1">1</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="confidence" value="2" id="q2-2"><label for="q2-2">2</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="confidence" value="3" id="q2-3"><label for="q2-3">3</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="confidence" value="4" id="q2-4"><label for="q2-4">4</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="confidence" value="5" id="q2-5"><label for="q2-5">5</label>
         <br><br>
-        Q3. What features of the query and the data collection did you compare while determining similarity?<br>
+        Q3. What features did you consider while rating the similarity of a time series to the query?<br>
         <textarea name="features" rows="6" cols="50" ></textarea><br>
 
         <br><b>Survey</b><br>
@@ -111,14 +111,14 @@
         <input type="radio" name="gender" value="male" id="s1-2"><label for="s1-2">Male</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="gender" value="other" id="s1-3"><label for="s1-3">Other</label>
         <br><br>
-        S2. How will you characterize your experience data analysis? (1 for novice and 5 for experienced expert)<br>
-        <input type="radio" name="experience" value="1" id="s2-1"><label for="s2-1">1</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="experience" value="2" id="s2-2"><label for="s2-2">2</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="experience" value="3" id="s2-3"><label for="s2-3">3</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="experience" value="4" id="s2-4"><label for="s2-4">4</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="experience" value="5" id="s2-5"><label for="s2-5">5</label>
+        S2. How often do you work with data?<br>
+        <input type="radio" name="experience" value="1" id="s2-1"><label for="s2-1">Never</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="2" id="s2-2"><label for="s2-2">Rarely (Yearly or Fewer)</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="3" id="s2-3"><label for="s2-3">Sometimes (Monthly)</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="4" id="s2-4"><label for="s2-4">Often (Weekly)</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="5" id="s2-5"><label for="s2-5">Very Often(Daily)</label>
         <br><br>
-        S3. Which of the following tools have you used for data? (Please select all that apply.)<br>
+        S3. Which of the following tools have you used for data analysis? (Please select all that apply.)<br>
         <input type="checkbox" name="tools" class="tools" value="spreadsheets" id="s3-1"><label for="s3-1">Spreadsheets (like Excel, Google sheets, Numbers)</label><br>
         <input type="checkbox" name="tools" class="tools" value="DataAnalysisLanguage" id="s3-2"><label for="s3-2">Data analytics language (like R, Matlab, python)</label><br>
         <input type="checkbox" name="tools" class="tools" value="BI" id="s3-3"><label for="s3-3">Business analytics tools (like Tableau, Power BI)</label><br>

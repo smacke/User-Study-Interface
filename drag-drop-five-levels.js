@@ -5,7 +5,8 @@
 $(function() {
     $( "#accordion" ).accordion({
         collapsible: true,
-        heightStyle: "content"
+        heightStyle: "content",
+        active: false
     });
 
     $(".tools").change(function() {

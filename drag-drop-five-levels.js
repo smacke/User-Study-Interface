@@ -100,9 +100,19 @@ $(function() {
         $("#tools_answer").val(toolsList.join(";"));
 
         var features = document.forms["Questions"]["features"].value;
+        var bin1_features = document.forms["Questions"]["bin1-features"].value;
+        var bin2_features = document.forms["Questions"]["bin2-features"].value;
+        var bin3_features = document.forms["Questions"]["bin3-features"].value;
+        var bin4_features = document.forms["Questions"]["bin4-features"].value;
+        var bin5_features = document.forms["Questions"]["bin5-features"].value;
         if( $('input[name=difficulty]:checked').length == 0 ||
             $('input[name=confidence]:checked').length == 0 ||
             features == null || features == "" ||
+            bin1_features == null || bin1_features == "" ||
+            bin2_features == null || bin2_features == "" ||
+            bin3_features == null || bin3_features == "" ||
+            bin4_features == null || bin4_features == "" ||
+            bin5_features == null || bin5_features == "" ||
             $('input[name=gender]:checked').length == 0 ||
             $('input[name=experience]:checked').length == 0 ||
             $('input[name=tools]:checked').length == 0 ) {

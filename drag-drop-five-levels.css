@@ -10,22 +10,22 @@ html, body {width:100%;height:100%;}
 
         /*#Query img { border:0px; height:90%; width:100%; }*/
 
-    #full { position:absolute; display:none; height:200px; width:300px;}
+    #full { position:absolute; display:none; height:200px; width:300px; background-color:white; }
 
         /*#full img { height:200px; width:300px; }*/
 
     #five-levels { background-color:#EEEEEE; height:30%; width:76%; float:left; }
 
-        #five-levels div { text-align: center; float:left; width: 19.8%; height: 75%; }
+        #five-levels > div { text-align: center; float:left; width: 19.8%; height: 75%; }
 
-            #five-levels div div { border-radius: 10px; width: 94%; height: 100%; padding: 1px; border: 2px solid #73AD21; margin: 1px; overflow:scroll; }
+            #five-levels > div > div { border-radius: 10px; width: 94%; height: 100%; padding: 1px; border: 2px solid #73AD21; margin: 1px; overflow:scroll; }
 
-                #five-levels div div img { border:0px; height:34px; width: 50px; margin: 1px; padding: 1px; float: left; }
+                #five-levels > div > div > div { border:0px; height:34px; width: 50px; margin: 1px; padding: 1px; float: left; background-color:white; }
 
     #DataCollection { background-color:#a9b6ff; height:45%; width:100%; overflow:scroll; }
 
         /*#DataCollection div { border:0; height:100px; width:150px; margin: 2px; padding: 1px; float: left; background-color: white;}*/
-        #DataCollection div { display:block; border:0px; height:100px; width:150px; margin: 2px; padding: 0px; float: left; background-color: white;}
+        #DataCollection > div { display:block; border:0px; height:100px; width:150px; margin: 2px; padding: 0px; float: left; background-color: white;}
 
     #Questions { background-color:#fff1dc; width:100%; display:none;font-size:17px;}
 

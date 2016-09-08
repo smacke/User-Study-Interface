@@ -6,8 +6,6 @@ $(function() {
 
     createDygraphs();
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     $( "#accordion" ).accordion({
         collapsible: true,
         heightStyle: "content",
@@ -39,30 +37,44 @@ $(function() {
         connectWith: "#DataCollection, #level1, #level2, #level3, #level4, #level5",
         receive: function(event, ui) {
             if (this.id == "DataCollection") {
+                $('#full').stop(true,true).hide();
                 ui.item.removeClass("ts-level");
                 ui.item.addClass("ts-dc");
                 ui.item.unbind('mouseenter mouseleave');
-                ui.item.animate({width: 150,height: 100}, 100);
+                ui.item.animate({width: 150,height: 100}, 10, 'swing', function(){
+                    var index = ui.item.attr("id");
+                    // alert(index.toString());
+                    tsDygraphs[index].resize();
+                });
                 ui.item.hover(
                     // Mouse Over
                     function(){
-                        $(this).animate({width: 300,height: 200}, 100);
+                        $(this).animate({width: 300,height: 200}, 0);
+                        var index = $(this).attr("id");
+                        tsDygraphs[index].resize();
                     },
                     // Mouse Out
                     function(){
-                        $(this).animate({width: 150,height: 100}, 100);
+                        $(this).animate({width: 150,height: 100}, 0);
+                        var index = $(this).attr("id");
+                        tsDygraphs[index].resize();
                     });
             }
             else {
                 ui.item.removeClass("ts-dc");
                 ui.item.addClass("ts-level");
                 ui.item.unbind('mouseenter mouseleave');
-                ui.item.animate({width: 50,height: 34}, 100);
+                ui.item.animate({width: 50,height: 34}, 10,'swing', function(){
+                    var index = ui.item.attr("id");
+                    // alert(index.toString());
+                    tsDygraphs[index].resize();
+                });
                 ui.item.hover(
                     function(e){
                         var x = e.clientX,
                             y = e.clientY;
-                        $(" #full img")[0].src = $(this).attr('src');
+                        // $(" #full img")[0].src = $(this).attr('src');
+                        // fiveSimilarityBinsLargeCharts();
                         if ( ( 2 * x ) > $("#container").width() ) {
                             $(" #full").css({top:y+1, left: (x-300-1) }).show();
                         }
@@ -86,9 +98,9 @@ $(function() {
             alert("All time series in Data collection must be classified!");
         }
         else {
-            $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable( "option", "disabled", true );
+            $("#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable( "option", "disabled", true );
             $("#Questions").css("display", "block");
-            $( "#freeze" ).button().hide();
+            $("#freeze" ).button().hide();
 
             $(".level-set").each(function(i,obj){
                 var idOfThis = obj.id;
@@ -162,4 +174,18 @@ function createDygraphs() {
             }
         );
     }
+}
+
+function fiveSimilarityBinsLargeCharts() {
+    fullDygraph = new Dygraph(
+        document.getElementById("full"),
+        "data/test.csv", ////////////////////////////////////////////////////
+        {
+            drawGrid:false,
+            labelsDivWidth:0,
+            interactionModel: Dygraph.Interaction.nonInteractiveModel_,
+            highlightCircleSize: 0,
+            yAxisLabelWidth:10
+        }
+    );
 }

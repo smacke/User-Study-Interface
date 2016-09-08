@@ -185,8 +185,8 @@ function createDygraphs() {
                 labelsDivWidth:0,
                 interactionModel: Dygraph.Interaction.nonInteractiveModel_,
                 highlightCircleSize: 0,
-                xAxisLabelWidth:0,
-                yAxisLabelWidth:0
+                // xAxisLabelWidth:0,
+                yAxisLabelWidth:14
             }
         );
     }

@@ -4,11 +4,15 @@ html, body {width:100%;height:100%;}
 
     #Query { background-color:#FFD700; height:30%; width:24%; float:left; }
 
-        #Query img { border:0px; height:90%; width:100%; }
+        #query-chart { background: white; width: 100%; height: 90%; }
 
-    #full { position:absolute; display:none; }
+            /*.dygraph-axis-label.dygraph-axis-label-y { height: 1px; width:1px; }*/
 
-        #full img { height:200px; width:300px; }
+        /*#Query img { border:0px; height:90%; width:100%; }*/
+
+    #full { position:absolute; display:none; height:200px; width:300px;}
+
+        /*#full img { height:200px; width:300px; }*/
 
     #five-levels { background-color:#EEEEEE; height:30%; width:76%; float:left; }
 
@@ -20,7 +24,8 @@ html, body {width:100%;height:100%;}
 
     #DataCollection { background-color:#a9b6ff; height:45%; width:100%; overflow:scroll; }
 
-        #DataCollection img { border:0; height:100px; width:150px; margin: 2px; padding: 1px; float: left;}
+        /*#DataCollection div { border:0; height:100px; width:150px; margin: 2px; padding: 1px; float: left; background-color: white;}*/
+        #DataCollection div { display:block; border:0px; height:100px; width:150px; margin: 2px; padding: 0px; float: left; background-color: white;}
 
     #Questions { background-color:#fff1dc; width:100%; display:none;font-size:17px;}
 

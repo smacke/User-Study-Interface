@@ -3,6 +3,11 @@
  */
 
 $(function() {
+
+    createDygraphs();
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     $( "#accordion" ).accordion({
         collapsible: true,
         heightStyle: "content",
@@ -18,11 +23,15 @@ $(function() {
     $(".ts-dc").hover(
         // Mouse Over
         function(){
-            $(this).animate({width: 300,height: 200}, 100);
+            $(this).animate({width: 300,height: 200}, 0);
+            var index = $(this).attr("id");
+            tsDygraphs[index].resize();
         },
         // Mouse Out
         function(){
-            $(this).animate({width: 150,height: 100}, 100);
+            $(this).animate({width: 150,height: 100}, 0);
+            var index = $(this).attr("id");
+            tsDygraphs[index].resize();
         });
 
     $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable({
@@ -122,3 +131,35 @@ $(function() {
     });
 
 });
+
+function createDygraphs() {
+
+    tsDygraphs = new Array();
+    tsDygraphs[0] = new Dygraph(
+        document.getElementById("query-chart"),
+        "data/test.csv",
+        {
+            drawGrid:false,
+            labelsDivWidth:0,
+            interactionModel: Dygraph.Interaction.nonInteractiveModel_,
+            highlightCircleSize: 0,
+            yAxisLabelWidth:10
+        }
+    );
+
+    for (var i = 1; i <= 7; ++i) {
+        tsDygraphs[i] = new Dygraph(
+            // alert(toString(i));
+            document.getElementById(i.toString()),
+            "data/test.csv",
+            {
+                drawGrid:false,
+                labelsDivWidth:0,
+                interactionModel: Dygraph.Interaction.nonInteractiveModel_,
+                highlightCircleSize: 0,
+                xAxisLabelWidth:0,
+                yAxisLabelWidth:0
+            }
+        );
+    }
+}

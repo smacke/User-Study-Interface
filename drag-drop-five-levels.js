@@ -49,7 +49,7 @@ $(function() {
                 ui.item.hover(
                     // Mouse Over
                     function(){
-                        $(this).animate({width: 300,height: 200}, 0);
+                        $(this).animate({width: 300,height: 200, backgroundColor: 'white'}, 0);
                         var index = $(this).attr("id");
                         tsDygraphs[index].resize();
                     },
@@ -64,7 +64,7 @@ $(function() {
                 ui.item.removeClass("ts-dc");
                 ui.item.addClass("ts-level");
                 ui.item.unbind('mouseenter mouseleave');
-                ui.item.animate({width: 50,height: 34}, 10,'swing', function(){
+                ui.item.animate({width: 50,height: 50, backgroundColor:'#EEEEEE'}, 10,'swing', function(){
                     var index = ui.item.attr("id");
                     // alert(index.toString());
                     tsDygraphs[index].resize();
@@ -74,17 +74,20 @@ $(function() {
                         var x = e.clientX,
                             y = e.clientY;
                         // $(" #full img")[0].src = $(this).attr('src');
-                        // fiveSimilarityBinsLargeCharts();
                         if ( ( 2 * x ) > $("#container").width() ) {
-                            $(" #full").css({top:y+1, left: (x-300-1) }).show();
+                            // $(" #full").css({top:y+1, left: (x-300-1) }).show();
+                            $(" #full").css({top:y+1, left: (x-300-1),height:200, width:300 }).show();
+                            fiveSimilarityBinsLargeCharts();
                         }
                         else {
-                            $(" #full").css({top:y+1, left:x+1}).show();
+                            $(" #full").css({top:y+1, left:x+1,height:200, width:300}).show();
+                            fiveSimilarityBinsLargeCharts();
                         }
                     },
                     // Mouse Out
                     function(){
                         $('#full').stop(true,true).hide();
+                        $('#full div').hide();
                     });
             }
         },
@@ -146,6 +149,18 @@ $(function() {
 
 function createDygraphs() {
 
+    fullDygraph = new Dygraph(
+        document.getElementById("full"),
+        "data/test.csv", ////////////////////////////////////////////////////
+        {
+            drawGrid:false,
+            labelsDivWidth:0,
+            interactionModel: Dygraph.Interaction.nonInteractiveModel_,
+            highlightCircleSize: 0,
+            yAxisLabelWidth:10
+        }
+    );
+
     tsDygraphs = new Array();
     tsDygraphs[0] = new Dygraph(
         document.getElementById("query-chart"),
@@ -177,6 +192,7 @@ function createDygraphs() {
 }
 
 function fiveSimilarityBinsLargeCharts() {
+    fullDygraph.destroy();
     fullDygraph = new Dygraph(
         document.getElementById("full"),
         "data/test.csv", ////////////////////////////////////////////////////

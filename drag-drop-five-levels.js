@@ -77,11 +77,13 @@ $(function() {
                         if ( ( 2 * x ) > $("#container").width() ) {
                             // $(" #full").css({top:y+1, left: (x-300-1) }).show();
                             $(" #full").css({top:y+1, left: (x-300-1),height:200, width:300 }).show();
-                            fiveSimilarityBinsLargeCharts();
+                            var index = $(this).attr("id");
+                            fiveSimilarityBinsLargeCharts(index);
                         }
                         else {
                             $(" #full").css({top:y+1, left:x+1,height:200, width:300}).show();
-                            fiveSimilarityBinsLargeCharts();
+                            var index = $(this).attr("id");
+                            fiveSimilarityBinsLargeCharts(index);
                         }
                     },
                     // Mouse Out
@@ -151,7 +153,7 @@ function createDygraphs() {
 
     fullDygraph = new Dygraph(
         document.getElementById("full"),
-        "data/test.csv", ////////////////////////////////////////////////////
+        "data/query.csv", ////////////////////////////////////////////////////
         {
             drawGrid:false,
             labelsDivWidth:0,
@@ -164,7 +166,7 @@ function createDygraphs() {
     tsDygraphs = new Array();
     tsDygraphs[0] = new Dygraph(
         document.getElementById("query-chart"),
-        "data/test.csv",
+        "data/query.csv",
         {
             drawGrid:false,
             labelsDivWidth:0,
@@ -176,9 +178,8 @@ function createDygraphs() {
 
     for (var i = 1; i <= 7; ++i) {
         tsDygraphs[i] = new Dygraph(
-            // alert(toString(i));
             document.getElementById(i.toString()),
-            "data/test.csv",
+            "data/".concat("ts",i.toString(),".csv"),
             {
                 drawGrid:false,
                 labelsDivWidth:0,
@@ -191,11 +192,11 @@ function createDygraphs() {
     }
 }
 
-function fiveSimilarityBinsLargeCharts() {
+function fiveSimilarityBinsLargeCharts(index) {
     fullDygraph.destroy();
     fullDygraph = new Dygraph(
         document.getElementById("full"),
-        "data/test.csv", ////////////////////////////////////////////////////
+        "data/".concat("ts",index.toString(),".csv"),
         {
             drawGrid:false,
             labelsDivWidth:0,

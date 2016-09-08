@@ -25,10 +25,11 @@ div { opacity: 1; }
                 /*#five-levels > div > div > div { border:0px; margin: 1px; padding: 1px; float: left; }*/
                 #five-levels > div > div > div { float: left; margin: 1px; }
 
-    #DataCollection { background-color:#a9b6ff; height:45%; width:100%; overflow:scroll; }
+    #DataCollection-container { background-color:#a9b6ff; height:45%; width:100%; overflow:scroll; }
 
-        /*#DataCollection div { border:0; height:100px; width:150px; margin: 2px; padding: 1px; float: left; background-color: white;}*/
-        #DataCollection > div { display:block; border:0px; height:100px; width:150px; margin: 2px; padding: 0px; float: left; background-color: white;}
+        #DataCollection { height:95%; width:100%; }
+
+            #DataCollection > div { display:block; border:0px; height:100px; width:150px; margin: 2px; padding: 0px; float: left; background-color: white;}
 
     #Questions { background-color:#fff1dc; width:100%; display:none;font-size:17px;}
 

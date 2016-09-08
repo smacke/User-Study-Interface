@@ -41,7 +41,7 @@ $(function() {
                 ui.item.removeClass("ts-level");
                 ui.item.addClass("ts-dc");
                 ui.item.unbind('mouseenter mouseleave');
-                ui.item.animate({width: 150,height: 100}, 10, 'swing', function(){
+                ui.item.animate({width: 150,height: 100, backgroundColor: 'white'}, 10, 'swing', function(){
                     var index = ui.item.attr("id");
                     // alert(index.toString());
                     tsDygraphs[index].resize();
@@ -49,7 +49,7 @@ $(function() {
                 ui.item.hover(
                     // Mouse Over
                     function(){
-                        $(this).animate({width: 300,height: 200, backgroundColor: 'white'}, 0);
+                        $(this).animate({width: 300,height: 200}, 0);
                         var index = $(this).attr("id");
                         tsDygraphs[index].resize();
                     },

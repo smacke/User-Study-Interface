@@ -2,7 +2,11 @@
  * Created by Steven on 9/1/16.
  */
 
+
+
 $(function() {
+
+    fiveSimilarityBinsHoverEnabled = true;
 
     createDygraphs();
 
@@ -35,6 +39,17 @@ $(function() {
     $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable({
         revert: 10,
         connectWith: "#DataCollection, #level1, #level2, #level3, #level4, #level5",
+
+        start: function() {
+            // alert("drag begin!");
+            $('#full').stop(true,true).hide();
+            $('#full div').hide();
+            fiveSimilarityBinsHoverEnabled = false;
+        },
+        stop: function() {
+            fiveSimilarityBinsHoverEnabled = true;
+        },
+        
         receive: function(event, ui) {
             if (this.id == "DataCollection") {
                 $('#full').stop(true,true).hide();
@@ -71,19 +86,21 @@ $(function() {
                 });
                 ui.item.hover(
                     function(e){
-                        var x = e.clientX,
-                            y = e.clientY;
-                        // $(" #full img")[0].src = $(this).attr('src');
-                        if ( ( 2 * x ) > $("#container").width() ) {
-                            // $(" #full").css({top:y+1, left: (x-300-1) }).show();
-                            $(" #full").css({top:y+1, left: (x-300-1),height:200, width:300 }).show();
-                            var index = $(this).attr("id");
-                            fiveSimilarityBinsLargeCharts(index);
-                        }
-                        else {
-                            $(" #full").css({top:y+1, left:x+1,height:200, width:300}).show();
-                            var index = $(this).attr("id");
-                            fiveSimilarityBinsLargeCharts(index);
+                        if (fiveSimilarityBinsHoverEnabled) {
+                            var x = e.clientX,
+                                y = e.clientY;
+                            // $(" #full img")[0].src = $(this).attr('src');
+                            if ( ( 2 * x ) > $("#container").width() ) {
+                                // $(" #full").css({top:y+1, left: (x-300-1) }).show();
+                                $(" #full").css({top:y+1, left: (x-300-1),height:200, width:300 }).show();
+                                var index = $(this).attr("id");
+                                fiveSimilarityBinsLargeCharts(index);
+                            }
+                            else {
+                                $(" #full").css({top:y+1, left:x+1,height:200, width:300}).show();
+                                var index = $(this).attr("id");
+                                fiveSimilarityBinsLargeCharts(index);
+                            }
                         }
                     },
                     // Mouse Out

@@ -35,7 +35,7 @@ $(function() {
         });
 
     $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable({
-        revert: true,
+        revert: 10,
         connectWith: "#DataCollection, #level1, #level2, #level3, #level4, #level5",
         receive: function(event, ui) {
             if (this.id == "DataCollection") {

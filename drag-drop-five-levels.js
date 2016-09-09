@@ -6,6 +6,9 @@
 
 $(function() {
 
+    dataset_name = $("#dataset_name").val();
+    query_index = $("#query_index").val();
+
     fiveSimilarityBinsHoverEnabled = true;
 
     createDygraphs();
@@ -26,13 +29,13 @@ $(function() {
         // Mouse Over
         function(){
             $(this).animate({width: 300,height: 200}, 0);
-            var index = $(this).attr("id");
+            var index = tsName2tsIndex($(this).attr("id"));
             tsDygraphs[index].resize();
         },
         // Mouse Out
         function(){
             $(this).animate({width: 150,height: 100}, 0);
-            var index = $(this).attr("id");
+            var index = tsName2tsIndex($(this).attr("id"));
             tsDygraphs[index].resize();
         });
 
@@ -170,7 +173,7 @@ function createDygraphs() {
 
     fullDygraph = new Dygraph(
         document.getElementById("full"),
-        "data/query.csv", ////////////////////////////////////////////////////
+        "data/".concat(dataset_name, "/query", query_index, "/query.csv"),
         {
             drawGrid:false,
             labelsDivWidth:0,
@@ -181,9 +184,11 @@ function createDygraphs() {
     );
 
     tsDygraphs = new Array();
+    tsNameArray = new Array();
+    tsNameArray[0] = "query-chart";
     tsDygraphs[0] = new Dygraph(
         document.getElementById("query-chart"),
-        "data/query.csv",
+        "data/".concat(dataset_name, "/query", query_index, "/query.csv"),
         {
             drawGrid:false,
             labelsDivWidth:0,
@@ -193,10 +198,27 @@ function createDygraphs() {
         }
     );
 
-    for (var i = 1; i <= 7; ++i) {
-        tsDygraphs[i] = new Dygraph(
-            document.getElementById(i.toString()),
-            "data/".concat("ts",i.toString(),".csv"),
+    // for (var i = 1; i <= 7; ++i) {
+    //     tsDygraphs[i] = new Dygraph(
+    //         document.getElementById(i.toString()),
+    //         "data/".concat("ts",i.toString(),".csv"),
+    //         {
+    //             drawGrid:false,
+    //             labelsDivWidth:0,
+    //             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
+    //             highlightCircleSize: 0,
+    //             // xAxisLabelWidth:0,
+    //             yAxisLabelWidth:14
+    //         }
+    //     );
+    // }
+    $("#DataCollection > div").each(function (index) {
+        var tsName = $(this).attr("id");
+        tsNameArray[index+1] = tsName;
+        tsDygraphs[index+1] = new Dygraph(
+            // document.getElementById(tsName),
+            this,
+            "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
             {
                 drawGrid:false,
                 labelsDivWidth:0,
@@ -206,7 +228,16 @@ function createDygraphs() {
                 yAxisLabelWidth:14
             }
         );
+    });
+}
+
+function tsName2tsIndex(tsName) {
+    for ( i = 0; i < tsNameArray.length; i++) {
+        if (tsName == tsNameArray[i]) {
+            return i;
+        }
     }
+    return 0;
 }
 
 function fiveSimilarityBinsLargeCharts(index) {

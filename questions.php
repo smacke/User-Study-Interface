@@ -4,7 +4,7 @@
 
 <?php
 function openFile() {
-    $fileName = "UserResults/" . test_input($_POST["query_index"]) . ".csv";
+    $fileName = "UserResults/query" . test_input($_POST["query_index"]) . ".csv";
     $myfile = fopen($fileName, "a");
 
     if (flock($myfile, LOCK_EX)) {

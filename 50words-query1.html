@@ -60,34 +60,49 @@
         <b>Data collection</b>
         <br>
         <div id="DataCollection">
-            <!--<img id="1" src="./data/query1/ts1.png" class="ts-dc">-->
-            <!--<img id="2" src="./data/query1/ts2.png" class="ts-dc">-->
-            <!--<img id="3" src="./data/query1/ts3.png" class="ts-dc">-->
-            <!--<img id="4" src="./data/query1/ts4.png" class="ts-dc">-->
-            <!--<img id="5" src="./data/query1/ts5.png" class="ts-dc">-->
-            <!--<img id="6" src="./data/query1/ts6.png" class="ts-dc">-->
-            <!--<img id="7" src="./data/query1/ts7.png" class="ts-dc">-->
-            <!--<img id="8" src="./data/query1/ts8.png" class="ts-dc">-->
-            <!--<img id="9" src="./data/query1/ts9.png" class="ts-dc">-->
-            <!--<img id="10" src="./data/query1/ts10.png" class="ts-dc">-->
-            <!--<img id="11" src="./data/query1/ts11.png" class="ts-dc">-->
-            <!--<img id="12" src="./data/query1/ts12.png" class="ts-dc">-->
-            <!--<img id="13" src="./data/query1/ts13.png" class="ts-dc">-->
-            <!--<img id="14" src="./data/query1/ts14.png" class="ts-dc">-->
-            <div id="1" class="ts-dc"></div>
-            <div id="2" class="ts-dc"></div>
-            <div id="3" class="ts-dc"></div>
-            <div id="4" class="ts-dc"></div>
-            <div id="5" class="ts-dc"></div>
-            <div id="6" class="ts-dc"></div>
-            <div id="7" class="ts-dc"></div>
+            <div id="DTW_1" class="ts-dc"></div>
+            <div id="DTW_2" class="ts-dc"></div>
+            <div id="DTW_3" class="ts-dc"></div>
+            <div id="DTW_4" class="ts-dc"></div>
+            <div id="DTW_5" class="ts-dc"></div>
+            <div id="DTW_6" class="ts-dc"></div>
+            <div id="DTW_7" class="ts-dc"></div>
+            <div id="Euc_1" class="ts-dc"></div>
+            <div id="Euc_2" class="ts-dc"></div>
+            <div id="Euc_3" class="ts-dc"></div>
+            <div id="Euc_4" class="ts-dc"></div>
+            <div id="Euc_5" class="ts-dc"></div>
+            <div id="Euc_6" class="ts-dc"></div>
+            <div id="Euc_7" class="ts-dc"></div>
+            <div id="MVIP_1" class="ts-dc"></div>
+            <div id="MVIP_2" class="ts-dc"></div>
+            <div id="MVIP_3" class="ts-dc"></div>
+            <div id="MVIP_4" class="ts-dc"></div>
+            <div id="MVIP_5" class="ts-dc"></div>
+            <div id="MVIP_6" class="ts-dc"></div>
+            <div id="MVIP_7" class="ts-dc"></div>
+            <div id="MVIPOnlyXY_1" class="ts-dc"></div>
+            <div id="MVIPOnlyXY_2" class="ts-dc"></div>
+            <div id="MVIPOnlyXY_3" class="ts-dc"></div>
+            <div id="MVIPOnlyXY_4" class="ts-dc"></div>
+            <div id="MVIPOnlyXY_5" class="ts-dc"></div>
+            <div id="MVIPOnlyXY_6" class="ts-dc"></div>
+            <div id="MVIPOnlyXY_7" class="ts-dc"></div>
+            <div id="SBD_1" class="ts-dc"></div>
+            <div id="SBD_2" class="ts-dc"></div>
+            <div id="SBD_3" class="ts-dc"></div>
+            <div id="SBD_4" class="ts-dc"></div>
+            <div id="SBD_5" class="ts-dc"></div>
+            <div id="SBD_6" class="ts-dc"></div>
+            <div id="SBD_7" class="ts-dc"></div>
         </div>
     </div>
 
     <button id="freeze">Freeze</button>
 
     <form id="Questions" method="POST" action="questions.php">
-        <input type="hidden" id="query_index" name="query_index" value="query1" />
+        <input type="hidden" id="dataset_name" name="dataset_name" value="50words" />
+        <input type="hidden" id="query_index" name="query_index" value="1" />
 
         <input type="hidden" id="level1_set" name="level1_set" value="" />
         <input type="hidden" id="level2_set" name="level2_set" value="" />

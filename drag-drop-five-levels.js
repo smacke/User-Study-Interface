@@ -106,6 +106,7 @@ $(function() {
                     var index = tsName2tsIndex(ui.item.attr("id"));
                     // alert(index.toString());
                     tsDygraphs[index].updateOptions({
+                        title:null,
                         xAxisLabelWidth:0,
                         yAxisLabelWidth:0
                     });
@@ -214,6 +215,7 @@ function createDygraphs() {
         document.getElementById("query-chart"),
         "data/".concat(dataset_name, "/query", query_index, "/query.csv"),
         {
+            title: dataset_name.concat("-query",query_index),
             drawGrid:false,
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
@@ -244,6 +246,8 @@ function createDygraphs() {
             this,
             "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
             {
+                title: tsName,
+                titleHeight: 26,
                 drawGrid:false,
                 labelsDivWidth:0,
                 interactionModel: Dygraph.Interaction.nonInteractiveModel_,
@@ -270,6 +274,7 @@ function fiveSimilarityBinsLargeCharts(tsName) {
         document.getElementById("full"),
         "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
         {
+            title:tsName,
             drawGrid:false,
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,

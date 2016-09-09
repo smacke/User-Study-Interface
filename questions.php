@@ -25,20 +25,20 @@ fwrite($myfile,"Chicago Time: ");
 fwrite($myfile, date("Y-m-d h:i:sa"));
 fwrite($myfile,",");
 
-//bin 1~5
-fwrite($myfile, test_input($_POST["level1_set"]));
-fwrite($myfile,",");
-
-fwrite($myfile, test_input($_POST["level2_set"]));
-fwrite($myfile,",");
-
-fwrite($myfile, test_input($_POST["level3_set"]));
+//bin 5~1
+fwrite($myfile, test_input($_POST["level5_set"]));
 fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["level4_set"]));
 fwrite($myfile,",");
 
-fwrite($myfile, test_input($_POST["level5_set"]));
+fwrite($myfile, test_input($_POST["level3_set"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["level2_set"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["level1_set"]));
 fwrite($myfile,",");
 
 //questions
@@ -51,19 +51,19 @@ fwrite($myfile,",");
 fwrite($myfile, test_input($_POST["features"]));
 fwrite($myfile,",");
 
-fwrite($myfile, test_input($_POST["bin1-features"]));
-fwrite($myfile,",");
-
-fwrite($myfile, test_input($_POST["bin2-features"]));
-fwrite($myfile,",");
-
-fwrite($myfile, test_input($_POST["bin3-features"]));
+fwrite($myfile, test_input($_POST["bin5-features"]));
 fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["bin4-features"]));
 fwrite($myfile,",");
 
-fwrite($myfile, test_input($_POST["bin5-features"]));
+fwrite($myfile, test_input($_POST["bin3-features"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["bin2-features"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["bin1-features"]));
 fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["gender"]));

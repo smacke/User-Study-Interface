@@ -9,7 +9,7 @@ $(function() {
     dataset_name = $("#dataset_name").val();
     query_index = $("#query_index").val();
 
-    fiveSimilarityBinsHoverEnabled = true;
+    hoverEnabled = true;
 
     createDygraphs();
 
@@ -27,24 +27,42 @@ $(function() {
 
     $(".ts-dc").hover(
         // Mouse Over
-        function(){
-            $(this).animate({width: 300,height: 200}, 0);
-            var index = tsName2tsIndex($(this).attr("id"));
-            tsDygraphs[index].updateOptions({
-                xAxisLabelWidth:30,
-                yAxisLabelWidth:20
-            });
-            tsDygraphs[index].resize();
+        function(e){
+            // $(this).animate({width: 300,height: 200}, 0);
+            // var index = tsName2tsIndex($(this).attr("id"));
+            // tsDygraphs[index].updateOptions({
+            //     xAxisLabelWidth:30,
+            //     yAxisLabelWidth:20
+            // });
+            // tsDygraphs[index].resize();
+
+            if (hoverEnabled) {
+                var x = e.clientX,
+                    y = e.clientY;
+                if ( ( 2 * x ) > $("#container").width() ) {
+                    $(" #full").css({top:y+5, left: (x-300-5),height:200, width:300 }).show();
+                    var tsName = $(this).attr("id");
+                    largeCharts(tsName);
+                }
+                else {
+                    $(" #full").css({top:y+5, left:x+5,height:200, width:300}).show();
+                    var tsName = $(this).attr("id");
+                    largeCharts(tsName);
+                }
+            }
         },
         // Mouse Out
         function(){
-            $(this).animate({width: 150,height: 100}, 0);
-            var index = tsName2tsIndex($(this).attr("id"));
-            tsDygraphs[index].updateOptions({
-                xAxisLabelWidth:0,
-                yAxisLabelWidth:0
-            });
-            tsDygraphs[index].resize();
+            // $(this).animate({width: 150,height: 100}, 0);
+            // var index = tsName2tsIndex($(this).attr("id"));
+            // tsDygraphs[index].updateOptions({
+            //     xAxisLabelWidth:0,
+            //     yAxisLabelWidth:0
+            // });
+            // tsDygraphs[index].resize();
+
+            $('#full').stop(true,true).hide();
+            $('#full div').hide();
         });
 
     $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable({
@@ -55,10 +73,10 @@ $(function() {
             // alert("drag begin!");
             $('#full').stop(true,true).hide();
             $('#full div').hide();
-            fiveSimilarityBinsHoverEnabled = false;
+            hoverEnabled = false;
         },
         stop: function() {
-            fiveSimilarityBinsHoverEnabled = true;
+            hoverEnabled = true;
         },
         
         receive: function(event, ui) {
@@ -68,9 +86,11 @@ $(function() {
                 ui.item.addClass("ts-dc");
                 ui.item.unbind('mouseenter mouseleave');
                 ui.item.animate({width: 150,height: 100, backgroundColor: 'white'}, 10, 'swing', function(){
-                    var index = tsName2tsIndex(ui.item.attr("id"));
+                    var tsName = ui.item.attr("id");
+                    var index = tsName2tsIndex(tsName);
                     // alert(index.toString());
                     tsDygraphs[index].updateOptions({
+                        // title:tsName,
                         xAxisLabelWidth:0,
                         yAxisLabelWidth:0
                     });
@@ -78,24 +98,44 @@ $(function() {
                 });
                 ui.item.hover(
                     // Mouse Over
-                    function(){
-                        $(this).animate({width: 300,height: 200}, 0);
-                        var index = tsName2tsIndex($(this).attr("id"));
-                        tsDygraphs[index].updateOptions({
-                            xAxisLabelWidth:30,
-                            yAxisLabelWidth:20
-                        });
-                        tsDygraphs[index].resize();
+                    function(e){
+                        // $(this).animate({width: 300,height: 200}, 0);
+                        // var index = tsName2tsIndex($(this).attr("id"));
+                        // tsDygraphs[index].updateOptions({
+                        //     xAxisLabelWidth:30,
+                        //     yAxisLabelWidth:20
+                        // });
+                        // tsDygraphs[index].resize();
+
+                        if (hoverEnabled) {
+                            var x = e.clientX,
+                                y = e.clientY;
+                            // $(" #full img")[0].src = $(this).attr('src');
+                            if ( ( 2 * x ) > $("#container").width() ) {
+                                // $(" #full").css({top:y+1, left: (x-300-1) }).show();
+                                $(" #full").css({top:y+5, left: (x-300-5),height:200, width:300 }).show();
+                                var tsName = $(this).attr("id");
+                                largeCharts(tsName);
+                            }
+                            else {
+                                $(" #full").css({top:y+5, left:x+5,height:200, width:300}).show();
+                                var tsName = $(this).attr("id");
+                                largeCharts(tsName);
+                            }
+                        }
                     },
                     // Mouse Out
                     function(){
-                        $(this).animate({width: 150,height: 100}, 0);
-                        var index = tsName2tsIndex($(this).attr("id"));
-                        tsDygraphs[index].updateOptions({
-                            xAxisLabelWidth:0,
-                            yAxisLabelWidth:0
-                        });
-                        tsDygraphs[index].resize();
+                        // $(this).animate({width: 150,height: 100}, 0);
+                        // var index = tsName2tsIndex($(this).attr("id"));
+                        // tsDygraphs[index].updateOptions({
+                        //     xAxisLabelWidth:0,
+                        //     yAxisLabelWidth:0
+                        // });
+                        // tsDygraphs[index].resize();
+
+                        $('#full').stop(true,true).hide();
+                        $('#full div').hide();
                     });
             }
             else {
@@ -113,8 +153,9 @@ $(function() {
                     tsDygraphs[index].resize();
                 });
                 ui.item.hover(
+                    // Mouse Over
                     function(e){
-                        if (fiveSimilarityBinsHoverEnabled) {
+                        if (hoverEnabled) {
                             var x = e.clientX,
                                 y = e.clientY;
                             // $(" #full img")[0].src = $(this).attr('src');
@@ -122,12 +163,12 @@ $(function() {
                                 // $(" #full").css({top:y+1, left: (x-300-1) }).show();
                                 $(" #full").css({top:y+1, left: (x-300-1),height:200, width:300 }).show();
                                 var tsName = $(this).attr("id");
-                                fiveSimilarityBinsLargeCharts(tsName);
+                                largeCharts(tsName);
                             }
                             else {
                                 $(" #full").css({top:y+1, left:x+1,height:200, width:300}).show();
                                 var tsName = $(this).attr("id");
-                                fiveSimilarityBinsLargeCharts(tsName);
+                                largeCharts(tsName);
                             }
                         }
                     },
@@ -224,20 +265,6 @@ function createDygraphs() {
         }
     );
 
-    // for (var i = 1; i <= 7; ++i) {
-    //     tsDygraphs[i] = new Dygraph(
-    //         document.getElementById(i.toString()),
-    //         "data/".concat("ts",i.toString(),".csv"),
-    //         {
-    //             drawGrid:false,
-    //             labelsDivWidth:0,
-    //             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
-    //             highlightCircleSize: 0,
-    //             // xAxisLabelWidth:0,
-    //             yAxisLabelWidth:14
-    //         }
-    //     );
-    // }
     $("#DataCollection > div").each(function (index) {
         var tsName = $(this).attr("id");
         tsNameArray[index+1] = tsName;
@@ -246,8 +273,8 @@ function createDygraphs() {
             this,
             "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
             {
-                title: tsName,
-                titleHeight: 26,
+                // title: tsName,
+                // titleHeight: 26,
                 drawGrid:false,
                 labelsDivWidth:0,
                 interactionModel: Dygraph.Interaction.nonInteractiveModel_,
@@ -268,8 +295,8 @@ function tsName2tsIndex(tsName) {
     return 0;
 }
 
-function fiveSimilarityBinsLargeCharts(tsName) {
-    fullDygraph.destroy();
+function largeCharts(tsName) {
+    // fullDygraph.destroy();
     fullDygraph = new Dygraph(
         document.getElementById("full"),
         "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),

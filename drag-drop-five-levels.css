@@ -27,7 +27,7 @@ div { opacity: 1; }
 
     #DataCollection-container { background-color:#a9b6ff; height:45%; width:100%; overflow:scroll; }
 
-        #DataCollection { height:95%; width:100%; }
+        #DataCollection { height:95%; width:98%; }
 
             #DataCollection > div { display:block; border:0px; height:100px; width:150px; margin: 2px; padding: 0px; float: left; background-color: white;}
 

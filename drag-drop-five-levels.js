@@ -40,12 +40,12 @@ $(function() {
                 var x = e.clientX,
                     y = e.clientY;
                 if ( ( 2 * x ) > $("#container").width() ) {
-                    $(" #full").css({top:y+5, left: (x-300-5),height:200, width:300 }).show();
+                    $(" #full").css({top:y+10, left: (x-300-10),height:200, width:300 }).show();
                     var tsName = $(this).attr("id");
                     largeCharts(tsName);
                 }
                 else {
-                    $(" #full").css({top:y+5, left:x+5,height:200, width:300}).show();
+                    $(" #full").css({top:y+10, left:x+10,height:200, width:300}).show();
                     var tsName = $(this).attr("id");
                     largeCharts(tsName);
                 }
@@ -113,12 +113,12 @@ $(function() {
                             // $(" #full img")[0].src = $(this).attr('src');
                             if ( ( 2 * x ) > $("#container").width() ) {
                                 // $(" #full").css({top:y+1, left: (x-300-1) }).show();
-                                $(" #full").css({top:y+5, left: (x-300-5),height:200, width:300 }).show();
+                                $(" #full").css({top:y+10, left: (x-300-10),height:200, width:300 }).show();
                                 var tsName = $(this).attr("id");
                                 largeCharts(tsName);
                             }
                             else {
-                                $(" #full").css({top:y+5, left:x+5,height:200, width:300}).show();
+                                $(" #full").css({top:y+10, left:x+10,height:200, width:300}).show();
                                 var tsName = $(this).attr("id");
                                 largeCharts(tsName);
                             }

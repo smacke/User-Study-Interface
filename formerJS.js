@@ -198,7 +198,7 @@ function createDygraphs() {
 
     fullDygraph = new Dygraph(
         document.getElementById("full"),
-        "data/".concat(dataset_name, "/query", query_index, "/query.csv"),
+        "dataWithRedundancy/".concat(dataset_name, "/query", query_index, "/query.csv"),
         {
             drawGrid:false,
             labelsDivWidth:0,
@@ -213,7 +213,7 @@ function createDygraphs() {
     tsNameArray[0] = "query-chart";
     tsDygraphs[0] = new Dygraph(
         document.getElementById("query-chart"),
-        "data/".concat(dataset_name, "/query", query_index, "/query.csv"),
+        "dataWithRedundancy/".concat(dataset_name, "/query", query_index, "/query.csv"),
         {
             title: dataset_name.concat("-query",query_index),
             drawGrid:false,
@@ -227,7 +227,7 @@ function createDygraphs() {
     // for (var i = 1; i <= 7; ++i) {
     //     tsDygraphs[i] = new Dygraph(
     //         document.getElementById(i.toString()),
-    //         "data/".concat("ts",i.toString(),".csv"),
+    //         "dataWithRedundancy/".concat("ts",i.toString(),".csv"),
     //         {
     //             drawGrid:false,
     //             labelsDivWidth:0,
@@ -244,7 +244,7 @@ function createDygraphs() {
         tsDygraphs[index+1] = new Dygraph(
             // document.getElementById(tsName),
             this,
-            "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
+            "dataWithRedundancy/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
             {
                 title: tsName,
                 titleHeight: 26,
@@ -272,7 +272,7 @@ function fiveSimilarityBinsLargeCharts(tsName) {
     fullDygraph.destroy();
     fullDygraph = new Dygraph(
         document.getElementById("full"),
-        "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
+        "dataWithRedundancy/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
         {
             title:tsName,
             drawGrid:false,

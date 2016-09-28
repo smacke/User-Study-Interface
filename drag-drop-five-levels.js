@@ -1,9 +1,3 @@
-/**
- * Created by Steven on 9/1/16.
- */
-
-
-
 $(function() {
 
     dataset_name = $("#dataset_name").val();
@@ -78,7 +72,7 @@ $(function() {
         stop: function() {
             hoverEnabled = true;
         },
-        
+
         receive: function(event, ui) {
             if (this.id == "DataCollection") {
                 $('#full').stop(true,true).hide();
@@ -265,6 +259,16 @@ function createDygraphs() {
         }
     );
 
+    var content = readTextFile("data/".concat(dataset_name, "/query", query_index, "/TSIndexList.txt"));
+    var TSIndexList = content.split("\n");
+
+    for ( var i = 0; i < (TSIndexList.length-1); ++i) {
+        var div = document.createElement("div");
+        div.id = "TS".concat(TSIndexList[i]);
+        div.className += "ts-dc";
+        document.getElementById("DataCollection").appendChild(div);
+    }
+
     $("#DataCollection > div").each(function (index) {
         var tsName = $(this).attr("id");
         tsNameArray[index+1] = tsName;
@@ -287,7 +291,7 @@ function createDygraphs() {
 }
 
 function tsName2tsIndex(tsName) {
-    for ( i = 0; i < tsNameArray.length; i++) {
+    for ( var i = 0; i < tsNameArray.length; i++) {
         if (tsName == tsNameArray[i]) {
             return i;
         }
@@ -310,4 +314,24 @@ function largeCharts(tsName) {
             yAxisLabelWidth:20
         }
     );
+}
+
+function readTextFile(file)
+{
+    var content = null;
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                content = rawFile.responseText;
+                // alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+    return content;
 }

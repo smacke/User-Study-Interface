@@ -270,11 +270,12 @@ function createDygraphs() {
     }
 
     $("#DataCollection > div").each(function (index) {
-        //debug
-        var content = readTextFile("data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"));
-        console.log("%s -- No.%d TS.",content,index+1);
-
         var tsName = $(this).attr("id");
+
+        //debug
+        var tmp = readTextFile("data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"));
+        console.log("%s -- No.%d TS.",tmp,index+1);
+
         tsNameArray[index+1] = tsName;
         tsDygraphs[index+1] = new Dygraph(
             // document.getElementById(tsName),

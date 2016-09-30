@@ -5,8 +5,6 @@ $(function() {
 
     hoverEnabled = true;
 
-    createDygraphs();
-
     $( "#accordion" ).accordion({
         collapsible: true,
         heightStyle: "content",
@@ -19,45 +17,7 @@ $(function() {
         }
     });
 
-    $(".ts-dc").hover(
-        // Mouse Over
-        function(e){
-            // $(this).animate({width: 300,height: 200}, 0);
-            // var index = tsName2tsIndex($(this).attr("id"));
-            // tsDygraphs[index].updateOptions({
-            //     xAxisLabelWidth:30,
-            //     yAxisLabelWidth:20
-            // });
-            // tsDygraphs[index].resize();
-
-            if (hoverEnabled) {
-                var x = e.clientX,
-                    y = e.clientY;
-                if ( ( 2 * x ) > $("#container").width() ) {
-                    $(" #full").css({top:y+10, left: (x-300-10),height:200, width:300 }).show();
-                    var tsName = $(this).attr("id");
-                    largeCharts(tsName);
-                }
-                else {
-                    $(" #full").css({top:y+10, left:x+10,height:200, width:300}).show();
-                    var tsName = $(this).attr("id");
-                    largeCharts(tsName);
-                }
-            }
-        },
-        // Mouse Out
-        function(){
-            // $(this).animate({width: 150,height: 100}, 0);
-            // var index = tsName2tsIndex($(this).attr("id"));
-            // tsDygraphs[index].updateOptions({
-            //     xAxisLabelWidth:0,
-            //     yAxisLabelWidth:0
-            // });
-            // tsDygraphs[index].resize();
-
-            $('#full').stop(true,true).hide();
-            $('#full div').hide();
-        });
+    createDygraphs();
 
     $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable({
         revert: 10,
@@ -271,44 +231,147 @@ function createDygraphs() {
         }
     );
 
-    var content = readTextFile("data/".concat(dataset_name, "/query", query_index, "/TSIndexList.txt"));
-    var TSIndexList = content.split("\n");
+    // var content = readTextFile("data/".concat(dataset_name, "/query", query_index, "/TSIndexList.txt"));
+    var filePath = "data/".concat(dataset_name, "/query", query_index, "/TSIndexList.txt");
+    $.get(filePath, function(data) {
+        var TSIndexList = data.split("\n");
+        for ( var i = 0; i < (TSIndexList.length-1); ++i) {
+            var div = document.createElement("div");
+            div.id = "TS".concat(TSIndexList[i]);
+            div.className += "ts-dc";
+            document.getElementById("DataCollection").appendChild(div);
 
-    for ( var i = 0; i < (TSIndexList.length-1); ++i) {
-        var div = document.createElement("div");
-        div.id = "TS".concat(TSIndexList[i]);
-        div.className += "ts-dc";
-        document.getElementById("DataCollection").appendChild(div);
-    }
-
-    $("#DataCollection > div").each(function (index) {
-        var tsName = $(this).attr("id");
-
-        //debug
-        var tmp = readTextFile("data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"));
-        console.log("%s -- No.%d TS.",tmp,index+1);
-
-        tsNameArray[index+1] = tsName;
-        tsDygraphs[index+1] = new Dygraph(
-            // document.getElementById(tsName),
-            this,
-            "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
-            {
-                // title: tsName,
-                // titleHeight: 26,
-                drawGrid:false,
-                labelsDivWidth:0,
-                interactionModel: Dygraph.Interaction.nonInteractiveModel_,
-                highlightCircleSize: 0,
-                // xAxisLabelWidth:0,
-                // yAxisLabelWidth:0
-                axes: {
-                    x: {axisLabelWidth: 0},
-                    y: {axisLabelWidth: 0}
+            var tsName = div.id;
+            tsNameArray[i+1] = tsName;
+            tsDygraphs[i+1] = new Dygraph(
+                document.getElementById(tsName),
+                "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
+                {
+                    // title: tsName,
+                    // titleHeight: 26,
+                    drawGrid:false,
+                    labelsDivWidth:0,
+                    interactionModel: Dygraph.Interaction.nonInteractiveModel_,
+                    highlightCircleSize: 0,
+                    // xAxisLabelWidth:0,
+                    // yAxisLabelWidth:0
+                    axes: {
+                        x: {axisLabelWidth: 0},
+                        y: {axisLabelWidth: 0}
+                    }
                 }
-            }
-        );
-    });
+            );
+
+            $('#'.concat(div.id)).hover(
+                // Mouse Over
+                function(e){
+                    // $(this).animate({width: 300,height: 200}, 0);
+                    // var index = tsName2tsIndex($(this).attr("id"));
+                    // tsDygraphs[index].updateOptions({
+                    //     xAxisLabelWidth:30,
+                    //     yAxisLabelWidth:20
+                    // });
+                    // tsDygraphs[index].resize();
+
+                    if (hoverEnabled) {
+                        var x = e.clientX,
+                            y = e.clientY;
+                        if ( ( 2 * x ) > $("#container").width() ) {
+                            $(" #full").css({top:y+10, left: (x-300-10),height:200, width:300 }).show();
+                            var tsName = $(this).attr("id");
+                            largeCharts(tsName);
+                        }
+                        else {
+                            $(" #full").css({top:y+10, left:x+10,height:200, width:300}).show();
+                            var tsName = $(this).attr("id");
+                            largeCharts(tsName);
+                        }
+                    }
+                },
+                // Mouse Out
+                function(){
+                    // $(this).animate({width: 150,height: 100}, 0);
+                    // var index = tsName2tsIndex($(this).attr("id"));
+                    // tsDygraphs[index].updateOptions({
+                    //     xAxisLabelWidth:0,
+                    //     yAxisLabelWidth:0
+                    // });
+                    // tsDygraphs[index].resize();
+
+                    $('#full').stop(true,true).hide();
+                    $('#full div').hide();
+                });
+        }
+        // $("#DataCollection > div").each(function (index) {
+        //     var tsName = $(this).attr("id");
+        //
+        //     //debug
+        //     // var tmp = readTextFile("data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"));
+        //     // console.log("%s -- No.%d TS.",tmp,index+1);
+        //
+        //     tsNameArray[index+1] = tsName;
+        //     tsDygraphs[index+1] = new Dygraph(
+        //         // document.getElementById(tsName),
+        //         this,
+        //         "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
+        //         {
+        //             // title: tsName,
+        //             // titleHeight: 26,
+        //             drawGrid:false,
+        //             labelsDivWidth:0,
+        //             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
+        //             highlightCircleSize: 0,
+        //             // xAxisLabelWidth:0,
+        //             // yAxisLabelWidth:0
+        //             axes: {
+        //                 x: {axisLabelWidth: 0},
+        //                 y: {axisLabelWidth: 0}
+        //             }
+        //         }
+        //     );
+        //
+        //     $(this).hover(
+        //         // Mouse Over
+        //         function(e){
+        //             // $(this).animate({width: 300,height: 200}, 0);
+        //             // var index = tsName2tsIndex($(this).attr("id"));
+        //             // tsDygraphs[index].updateOptions({
+        //             //     xAxisLabelWidth:30,
+        //             //     yAxisLabelWidth:20
+        //             // });
+        //             // tsDygraphs[index].resize();
+        //
+        //             if (hoverEnabled) {
+        //                 var x = e.clientX,
+        //                     y = e.clientY;
+        //                 if ( ( 2 * x ) > $("#container").width() ) {
+        //                     $(" #full").css({top:y+10, left: (x-300-10),height:200, width:300 }).show();
+        //                     var tsName = $(this).attr("id");
+        //                     largeCharts(tsName);
+        //                 }
+        //                 else {
+        //                     $(" #full").css({top:y+10, left:x+10,height:200, width:300}).show();
+        //                     var tsName = $(this).attr("id");
+        //                     largeCharts(tsName);
+        //                 }
+        //             }
+        //         },
+        //         // Mouse Out
+        //         function(){
+        //             // $(this).animate({width: 150,height: 100}, 0);
+        //             // var index = tsName2tsIndex($(this).attr("id"));
+        //             // tsDygraphs[index].updateOptions({
+        //             //     xAxisLabelWidth:0,
+        //             //     yAxisLabelWidth:0
+        //             // });
+        //             // tsDygraphs[index].resize();
+        //
+        //             $('#full').stop(true,true).hide();
+        //             $('#full div').hide();
+        //         });
+        // });
+
+    }, 'text');
 }
 
 function tsName2tsIndex(tsName) {
@@ -339,24 +402,4 @@ function largeCharts(tsName) {
             }
         }
     );
-}
-
-function readTextFile(file)
-{
-    var content = null;
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-                content = rawFile.responseText;
-                // alert(allText);
-            }
-        }
-    }
-    rawFile.send(null);
-    return content;
 }

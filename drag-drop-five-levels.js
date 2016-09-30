@@ -243,6 +243,11 @@ function createDygraphs() {
 
             var tsName = div.id;
             tsNameArray[i+1] = tsName;
+
+            $.get("data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"), function(data) {
+                console.log(data);
+            });
+
             tsDygraphs[i+1] = new Dygraph(
                 document.getElementById(tsName),
                 "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),

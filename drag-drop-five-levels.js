@@ -85,8 +85,12 @@ $(function() {
                     // alert(index.toString());
                     tsDygraphs[index].updateOptions({
                         // title:tsName,
-                        xAxisLabelWidth:0,
-                        yAxisLabelWidth:0
+                        // xAxisLabelWidth:0,
+                        // yAxisLabelWidth:0
+                        axes: {
+                            x: {axisLabelWidth: 0},
+                            y: {axisLabelWidth: 0}
+                        }
                     });
                     tsDygraphs[index].resize();
                 });
@@ -141,8 +145,12 @@ $(function() {
                     // alert(index.toString());
                     tsDygraphs[index].updateOptions({
                         title:null,
-                        xAxisLabelWidth:0,
-                        yAxisLabelWidth:0
+                        // xAxisLabelWidth:0,
+                        // yAxisLabelWidth:0
+                        axes: {
+                            x: {axisLabelWidth: 0},
+                            y: {axisLabelWidth: 0}
+                        }
                     });
                     tsDygraphs[index].resize();
                 });
@@ -239,7 +247,10 @@ function createDygraphs() {
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
             highlightCircleSize: 0,
-            yAxisLabelWidth:20
+            // yAxisLabelWidth:20
+            axes: {
+                y: {axisLabelWidth: 20}
+            }
         }
     );
 
@@ -255,7 +266,8 @@ function createDygraphs() {
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
             highlightCircleSize: 0,
-            yAxisLabelWidth:20
+            // yAxisLabelWidth:20
+            axes: {y: {axisLabelWidth: 20}}
         }
     );
 
@@ -288,8 +300,12 @@ function createDygraphs() {
                 labelsDivWidth:0,
                 interactionModel: Dygraph.Interaction.nonInteractiveModel_,
                 highlightCircleSize: 0,
-                xAxisLabelWidth:0,
-                yAxisLabelWidth:0
+                // xAxisLabelWidth:0,
+                // yAxisLabelWidth:0
+                axes: {
+                    x: {axisLabelWidth: 0},
+                    y: {axisLabelWidth: 0}
+                }
             }
         );
     });
@@ -315,8 +331,12 @@ function largeCharts(tsName) {
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
             highlightCircleSize: 0,
-            xAxisLabelWidth:30,
-            yAxisLabelWidth:20
+            // xAxisLabelWidth:30,
+            // yAxisLabelWidth:20
+            axes: {
+                x: {axisLabelWidth: 30},
+                y: {axisLabelWidth: 20}
+            }
         }
     );
 }

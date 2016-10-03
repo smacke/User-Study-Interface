@@ -10,7 +10,7 @@
     <script src="lib/jquery-ui-1.12.0/jquery-ui.min.js"></script>
     <script src="lib/dygraph-combined-dev.js"></script>
 
-    <!--<script src="drag-drop-five-levels.js"></script>-->
+    <script src="drag-drop-five-levels.js"></script>
     <link rel="stylesheet" href="drag-drop-five-levels.css">
 </head>
 <body>
@@ -58,20 +58,31 @@
     <div id="DataCollection-container">
         <b>Data collection</b>
         <br>
-        <div id="DataCollection"></div>
-        <script>
-            var data = "441\n440\n411\n260\n131\n442\n321\n129\n439\n365\n108\n410\n132\n434\n106\n104\n334\n143\n241\n412\n304\n265\n";
-            var TSIndexList = data.split("\n");
-            for ( var i = 0; i < (TSIndexList.length-1); ++i) {
-                var div = document.createElement("div");
-                div.id = "TS".concat(TSIndexList[i]);
-                div.className += "ts-dc";
-                document.getElementById("DataCollection").appendChild(div);
-            }
-        </script>
+        <div id="DataCollection">
+            <div id="TS441" class="ts-dc"></div>
+            <div id="TS440" class="ts-dc"></div>
+            <div id="TS411" class="ts-dc"></div>
+            <div id="TS260" class="ts-dc"></div>
+            <div id="TS131" class="ts-dc"></div>
+            <div id="TS442" class="ts-dc"></div>
+            <div id="TS321" class="ts-dc"></div>
+            <div id="TS129" class="ts-dc"></div>
+            <div id="TS439" class="ts-dc"></div>
+            <div id="TS365" class="ts-dc"></div>
+            <div id="TS108" class="ts-dc"></div>
+            <div id="TS410" class="ts-dc"></div>
+            <div id="TS132" class="ts-dc"></div>
+            <div id="TS434" class="ts-dc"></div>
+            <div id="TS106" class="ts-dc"></div>
+            <div id="TS104" class="ts-dc"></div>
+            <div id="TS334" class="ts-dc"></div>
+            <div id="TS143" class="ts-dc"></div>
+            <div id="TS241" class="ts-dc"></div>
+            <div id="TS412" class="ts-dc"></div>
+            <div id="TS304" class="ts-dc"></div>
+            <div id="TS265" class="ts-dc"></div>
+        </div>
     </div>
-
-
 
     <button id="freeze">Freeze</button>
 
@@ -143,5 +154,5 @@
 </script>
 
 </body>
-<script src="drag-drop-five-levels.js"></script>
+<!--<script src="drag-drop-five-levels.js"></script>-->
 </html>

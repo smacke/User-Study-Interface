@@ -58,10 +58,20 @@
     <div id="DataCollection-container">
         <b>Data collection</b>
         <br>
-        <div id="DataCollection">
-
-        </div>
+        <div id="DataCollection"></div>
+        <script>
+            var data = "441\n440\n411\n260\n131\n442\n321\n129\n439\n365\n108\n410\n132\n434\n106\n104\n334\n143\n241\n412\n304\n265\n";
+            var TSIndexList = data.split("\n");
+            for ( var i = 0; i < (TSIndexList.length-1); ++i) {
+                var div = document.createElement("div");
+                div.id = "TS".concat(TSIndexList[i]);
+                div.className += "ts-dc";
+                document.getElementById("DataCollection").appendChild(div);
+            }
+        </script>
     </div>
+
+
 
     <button id="freeze">Freeze</button>
 

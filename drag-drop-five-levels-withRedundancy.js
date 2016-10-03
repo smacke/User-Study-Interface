@@ -28,13 +28,6 @@ $(function() {
     $(".ts-dc").hover(
         // Mouse Over
         function(e){
-            // $(this).animate({width: 300,height: 200}, 0);
-            // var index = tsName2tsIndex($(this).attr("id"));
-            // tsDygraphs[index].updateOptions({
-            //     xAxisLabelWidth:30,
-            //     yAxisLabelWidth:20
-            // });
-            // tsDygraphs[index].resize();
 
             if (hoverEnabled) {
                 var x = e.clientX,
@@ -53,13 +46,6 @@ $(function() {
         },
         // Mouse Out
         function(){
-            // $(this).animate({width: 150,height: 100}, 0);
-            // var index = tsName2tsIndex($(this).attr("id"));
-            // tsDygraphs[index].updateOptions({
-            //     xAxisLabelWidth:0,
-            //     yAxisLabelWidth:0
-            // });
-            // tsDygraphs[index].resize();
 
             $('#full').stop(true,true).hide();
             $('#full div').hide();
@@ -91,21 +77,18 @@ $(function() {
                     // alert(index.toString());
                     tsDygraphs[index].updateOptions({
                         // title:tsName,
-                        xAxisLabelWidth:0,
-                        yAxisLabelWidth:0
+                        // xAxisLabelWidth:0,
+                        // yAxisLabelWidth:0
+                        axes: {
+                            x: {axisLabelWidth: 0},
+                            y: {axisLabelWidth: 0}
+                        }
                     });
                     tsDygraphs[index].resize();
                 });
                 ui.item.hover(
                     // Mouse Over
                     function(e){
-                        // $(this).animate({width: 300,height: 200}, 0);
-                        // var index = tsName2tsIndex($(this).attr("id"));
-                        // tsDygraphs[index].updateOptions({
-                        //     xAxisLabelWidth:30,
-                        //     yAxisLabelWidth:20
-                        // });
-                        // tsDygraphs[index].resize();
 
                         if (hoverEnabled) {
                             var x = e.clientX,
@@ -126,13 +109,6 @@ $(function() {
                     },
                     // Mouse Out
                     function(){
-                        // $(this).animate({width: 150,height: 100}, 0);
-                        // var index = tsName2tsIndex($(this).attr("id"));
-                        // tsDygraphs[index].updateOptions({
-                        //     xAxisLabelWidth:0,
-                        //     yAxisLabelWidth:0
-                        // });
-                        // tsDygraphs[index].resize();
 
                         $('#full').stop(true,true).hide();
                         $('#full div').hide();
@@ -147,8 +123,12 @@ $(function() {
                     // alert(index.toString());
                     tsDygraphs[index].updateOptions({
                         title:null,
-                        xAxisLabelWidth:0,
-                        yAxisLabelWidth:0
+                        // xAxisLabelWidth:0,
+                        // yAxisLabelWidth:0
+                        axes: {
+                            x: {axisLabelWidth: 0},
+                            y: {axisLabelWidth: 0}
+                        }
                     });
                     tsDygraphs[index].resize();
                 });
@@ -245,7 +225,10 @@ function createDygraphs() {
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
             highlightCircleSize: 0,
-            yAxisLabelWidth:20
+            // yAxisLabelWidth:20
+            axes: {
+                y: {axisLabelWidth: 20}
+            }
         }
     );
 
@@ -261,7 +244,10 @@ function createDygraphs() {
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
             highlightCircleSize: 0,
-            yAxisLabelWidth:20
+            // yAxisLabelWidth:20
+            axes: {
+                y: {axisLabelWidth: 20}
+            }
         }
     );
 
@@ -279,8 +265,12 @@ function createDygraphs() {
                 labelsDivWidth:0,
                 interactionModel: Dygraph.Interaction.nonInteractiveModel_,
                 highlightCircleSize: 0,
-                xAxisLabelWidth:0,
-                yAxisLabelWidth:0
+                // xAxisLabelWidth:0,
+                // yAxisLabelWidth:0
+                axes: {
+                    x: {axisLabelWidth: 0},
+                    y: {axisLabelWidth: 0}
+                }
             }
         );
     });
@@ -306,8 +296,12 @@ function largeCharts(tsName) {
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
             highlightCircleSize: 0,
-            xAxisLabelWidth:30,
-            yAxisLabelWidth:20
+            // xAxisLabelWidth:30,
+            // yAxisLabelWidth:20
+            axes: {
+                x: {axisLabelWidth: 30},
+                y: {axisLabelWidth: 20}
+            }
         }
     );
 }

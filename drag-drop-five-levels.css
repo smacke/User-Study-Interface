@@ -25,7 +25,7 @@ div { opacity: 1; }
                 /*#five-levels > div > div > div { border:0px; margin: 1px; padding: 1px; float: left; }*/
                 #five-levels > div > div > div { float: left; margin: 1px; }
 
-    #DataCollection-container { background-color:#a9b6ff; height:45%; width:100%; overflow:scroll; }
+    #DataCollection-container { background-color:#a9b6ff; height:85%; width:100%; overflow:scroll; }
 
         #DataCollection { height:95%; width:98%; }
 

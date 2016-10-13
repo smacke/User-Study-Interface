@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User study interface of similarity metrics</title>
+
+    <!--import library-->
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.0/jquery-ui.css" />
+    <script src="lib/jquery-ui-1.12.0/external/jquery/jquery.js"></script>
+    <script src="lib/jquery-ui-1.12.0/jquery-ui.min.js"></script>
+    <script src="lib/dygraph-combined-dev.js"></script>
+
+    <script src="drag-drop-five-levels.js"></script>
+    <link rel="stylesheet" href="drag-drop-five-levels.css">
+</head>
+<body>
+
+<div id="container">
+
+    <div id="accordion">
+        <h3>Instruction</h3>
+        <div id="instruction">
+            <object data="instruction.html" width="100%" height="600px"></object>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="Query">
+        <b>Query</b><br>
+        <div id="query-chart"></div>
+    </div>
+
+    <div id="five-levels">
+        <b>Similarity block (1 for least similar; 5 for most similar)</b><br>
+        <div id="level5-container">
+            5<br>
+            <div id="level5" class="level-set"></div>
+        </div>
+        <div id="level4-container">
+            4<br>
+            <div id="level4" class="level-set"></div>
+        </div>
+        <div id="level3-container">
+            3<br>
+            <div id="level3" class="level-set"></div>
+        </div>
+        <div id="level2-container">
+            2<br>
+            <div id="level2" class="level-set"></div>
+        </div>
+        <div id="level1-container">
+            1<br>
+            <div id="level1" class="level-set"></div>
+        </div>
+    </div>
+
+    <div id="DataCollection-container">
+        <b>Collection</b>
+        <br>
+        <div id="DataCollection">
+            <div id="TS2027" class="ts-dc"></div>
+            <div id="TS129" class="ts-dc"></div>
+            <div id="TS1375" class="ts-dc"></div>
+            <div id="TS1939" class="ts-dc"></div>
+            <div id="TS1211" class="ts-dc"></div>
+            <div id="TS2026" class="ts-dc"></div>
+            <div id="TS1690" class="ts-dc"></div>
+            <div id="TS954" class="ts-dc"></div>
+            <div id="TS600" class="ts-dc"></div>
+            <div id="TS1389" class="ts-dc"></div>
+            <div id="TS803" class="ts-dc"></div>
+            <div id="TS1121" class="ts-dc"></div>
+            <div id="TS1650" class="ts-dc"></div>
+            <div id="TS752" class="ts-dc"></div>
+            <div id="TS1421" class="ts-dc"></div>
+            <div id="TS671" class="ts-dc"></div>
+            <div id="TS681" class="ts-dc"></div>
+            <div id="TS1188" class="ts-dc"></div>
+            <div id="TS1596" class="ts-dc"></div>
+            <div id="TS662" class="ts-dc"></div>
+            <div id="TS706" class="ts-dc"></div>
+            <div id="TS579" class="ts-dc"></div>
+            <div id="TS1721" class="ts-dc"></div>
+            <div id="TS833" class="ts-dc"></div>
+
+
+        </div>
+    </div>
+
+    <button id="freeze">Continue</button>
+
+    <form id="Questions" method="POST" action="questions.php">
+        <input type="hidden" id="dataset_name" name="dataset_name" value="uWaveGestureLibrary_X" />
+        <input type="hidden" id="query_index" name="query_index" value="7" />
+
+        <input type="hidden" id="level1_set" name="level1_set" value="" />
+        <input type="hidden" id="level2_set" name="level2_set" value="" />
+        <input type="hidden" id="level3_set" name="level3_set" value="" />
+        <input type="hidden" id="level4_set" name="level4_set" value="" />
+        <input type="hidden" id="level5_set" name="level5_set" value="" />
+
+        <b>Questions</b><br>
+        Q1. How difficult was this task?<br>
+        <input type="radio" name="difficulty" value="1" id="q1-1"><label for="q1-1">Very Easy</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="difficulty" value="2" id="q1-2"><label for="q1-2">Easy</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="difficulty" value="3" id="q1-3"><label for="q1-3">Moderate</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="difficulty" value="4" id="q1-4"><label for="q1-4">Difficult</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="difficulty" value="5" id="q1-5"><label for="q1-5">Very Difficult</label>
+        <br><br>
+        Q2. On a scale of 1 to 5 (1 being low confidence and 5 being high confidence), rate your confidence in reproducing the same result second time around ?<br>
+		<input type="radio" name="confidence" value="5" id="q2-5"><label for="q2-5">5</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="confidence" value="4" id="q2-4"><label for="q2-4">4</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="confidence" value="3" id="q2-3"><label for="q2-3">3</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="confidence" value="2" id="q2-2"><label for="q2-2">2</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="confidence" value="1" id="q2-1"><label for="q2-1">1</label>
+        <br><br>
+        Q3. What features did you consider while rating the similarity of a chart in the <strong>Collection</strong> to the <strong>Reference</strong>?<br>
+        <textarea name="features" rows="5" cols="50" ></textarea>
+        <br><br>
+        Q4. For each of the squares in the <strong>Similarity</strong> block, summarize the features of the charts it contains:<br>
+        Square 5: <textarea name="bin5-features" rows="2" cols="50" ></textarea><br>
+        Square 4: <textarea name="bin4-features" rows="2" cols="50" ></textarea><br>
+        Square 3: <textarea name="bin3-features" rows="2" cols="50" ></textarea><br>
+        Square 2: <textarea name="bin2-features" rows="2" cols="50" ></textarea><br>
+        Square 1: <textarea name="bin1-features" rows="2" cols="50" ></textarea><br>
+
+        <br><b>Survey</b><br>
+        S1. Your gender:<br>
+        <input type="radio" name="gender" value="female" id="s1-1"><label for="s1-1">Female</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="gender" value="male" id="s1-2"><label for="s1-2">Male</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="gender" value="other" id="s1-3"><label for="s1-3">Other</label>
+        <br><br>
+        S2. How often do you work with data?<br>
+        <input type="radio" name="experience" value="1" id="s2-1"><label for="s2-1">Never</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="2" id="s2-2"><label for="s2-2">Rarely (Yearly or Fewer)</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="3" id="s2-3"><label for="s2-3">Sometimes (Monthly)</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="4" id="s2-4"><label for="s2-4">Often (Weekly)</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="5" id="s2-5"><label for="s2-5">Very Often(Daily)</label>
+        <br><br>
+        S3. Which of the following tools have you used for data analysis? (Please select all that apply.)<br>
+        <input type="checkbox" name="tools" class="tools" value="spreadsheets" id="s3-1"><label for="s3-1">Spreadsheets (like Excel, Google sheets, Numbers)</label><br>
+        <input type="checkbox" name="tools" class="tools" value="DataAnalysisLanguage" id="s3-2"><label for="s3-2">Data analytics language (like R, Matlab, python)</label><br>
+        <input type="checkbox" name="tools" class="tools" value="BI" id="s3-3"><label for="s3-3">Business analytics tools (like Tableau, Power BI)</label><br>
+        <input type="checkbox" name="tools" class="tools" value="other" id="other-checkbox"><label for="other-checkbox">Other</label>
+        <input id="other-text" placeholder="please enter your tool" type="text"/>
+        <input type="hidden" id="tools_answer" name="tools_answer" value="" />
+        <br><br>
+        <input id="submit" type="submit" value="Submit"><br><br>
+    </form>
+
+    <div id="full"></div>
+
+</div>
+
+<script>
+
+</script>
+
+</body>
+</html>

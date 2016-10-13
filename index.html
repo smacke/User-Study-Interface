@@ -337,12 +337,23 @@
 
 <h1 id="toc_0" align="center">Instructions</h1>
 
-<!--<p>In this HIT, you will work with charts (similar to the charts in Excel). The HIT interface is outlined in the following figure. You will be given a <strong>Reference Chart</strong> (block A in the figure). A <strong>Collection</strong> of charts (block C in the figure) will also be provided. The <strong>Similarity</strong> block is at the top right portion of your screen (block B in the figure) and contains five squares. Each of the squares is assigned a number from 5 to 1. Your task will be to compare each of the charts in the <strong>Collection</strong> (block C) with the <strong>Reference Chart</strong> (block A) and measure how similar they are to the reference. Then you have to assign the charts from the <strong>Collection</strong> (block C) to any one of the squares in <strong>Similarity</strong> block (block B) in the descending order of their similarity to the reference chart, i.e., most similar charts to the reference should be assigned to the square numbered 5 and the least similar ones should be assigned to the square numbered 1. The charts that are neither quite similar nor entirely dissimilar to the reference can be assigned in any one of the squares numbered between 2 to 4 depending on their similarity. Note that, the perception of similarity is completely up to you.</p>-->
-<p>In this HIT, you will work with charts (similar to the charts in Excel). The HIT interface is outlined in the following figure. It contains three primary components: a <strong>Reference Chart</strong> (block A in the figure), a <strong>Collection</strong> of charts (block C in the figure) and a <strong>Similarity</strong> block (block B in the figure) with five squares. Each of the squares in block B is assigned a number from 1 to 5. </p>
+<!--<p>In this HIT, you will work with charts (similar to the charts in Excel). The HIT interface is outlined in the following figure. It contains three primary components: a <strong>Reference Chart</strong> (block A in the figure), a <strong>Collection</strong> of charts (block C in the figure) and a <strong>Similarity</strong> block (block B in the figure) with five squares. Each of the squares in block B is assigned a number from 1 to 5. </p>
 <p>Your task will be to compare each of the charts in the <strong>Collection</strong> (block C) with the <strong>Reference Chart</strong> (block A) and measure how similar they are to the reference. Then you have to drag the charts from the <strong>Collection</strong> (block C) to one of the squares in <strong>Similarity</strong> block (block B) according to their similarity to the <strong>Reference Chart</strong>. The squares in the <strong>Similairty</strong> block represent different levels of similarity to the <strong>Reference Chart</strong> (5 for most similar and 1 for least similar).</p>
-<p>Note that, the perception of similarity is completely up to you.</p>
+<p>Note that, the perception of similarity is completely up to you.</p>-->
+<p>In this HIT, your goal is to <strong>estimate the visual similarity of charts</strong>, similar to the charts you may have seen in Excel, or published along with news articles. <em>If you are not familiar with how to read charts like the one given alongside (showing Donald Trump’s popularity over time), please do not attempt this HIT.</em> </p>
+<p align="center"><img src="trump.png" alt="" align="center" width="40%"></p>
+<p>The HIT for our task interface is outlined in the figure below, and contains three parts: a <strong>reference chart</strong> (block A), a <strong>collection of charts</strong> (block B) and a <strong>collection of rating buckets</strong>, numbered from 1--5 (block C).</p>
 
-<p align="center"><img src="instruction.png" alt="" align="center" width="60%"></p>
+<p align="center"><img src="interface.png" alt="" align="center" width="80%"></p>
+
+Your goal is to compare <strong>each chart in the collection of charts with the reference chart, and place it in a rating bucket based on how similar the chart is to the reference chart</strong>. The higher the similarity, the higher the number of the rating bucket you should use (<strong>5 is most similar, 1 is least similar</strong>). You can place multiple charts in each bucket. <strong>Your task is complete when all of the charts in the collection of charts are placed in some bucket</strong>. After that you have answer several questions related to the task.
+
+<h3 id="toc_3">Now what do we mean by similar?</h3>
+
+In the above figure (outlining the interface), there are two charts in the collection of charts, <strong>p</strong> and <strong>q</strong>. When comparing <strong>p</strong> to the reference chart, since it is identical to the reference, it is highly similar, and therefore we may want to place it in a higher rating bucket (closer to 5). On the other hand <strong>q</strong> shows inverse behavior to the reference -- <em>the y axis is decreasing as the x axis increases, while for the reference the y axis is increasing as x axis increases</em>.  Therefore, we may want to place this chart in a lower rating bucket (closer to 1). 
+
+<strong>Our goal is to understand what you find to be similar -- so how you decide to use these rating buckets to judge the similarity of the collection of charts is up to you. </strong>
+
 
 <hr>
 
@@ -351,11 +362,12 @@
 <p>Please read the following instructions and then click <em>OK</em> to begin the task:</p>
 
 <ol>
-    <li><p>Given the <strong>Reference</strong> chart and <strong>Collection</strong> charts, drag the charts in <strong>Collection</strong> block to any of the squares in <strong>Similarity</strong> block based on their similarity to the reference (1 for least similar; 5 for most similar). The charts in the <strong>Collection</strong> block and the <strong>Similarity</strong> block are magnified if you hover over them.</p></li>
-    <li><p>You MUST assign ALL the charts in the <strong>Collection</strong> block to the squares in the <strong>Similarity</strong> block you seem appropriate. You can also move a chart from one square to another if required.</p></li>
-    <li><p>After completing the assignment, click the <em>Freeze</em> button to freeze the task. You will NOT be able to make any changes to the <strong>Similarity</strong> block once the task is frozen. But you can still see the larger charts by hovering on the charts in the squares.</p></li>
-    <li><p>After you click <em>Freeze</em>, several questions related to the task will appear. Once you answer all the questions, you can click <em>Submit</em> to finish the task.</p></li>
-    <li><p>Whenever you want to see the instructions during your assignment, you can click the <em>Instruction</em> tab at the top. You can click it again to hide it. </p></li>
+    <li>Your goal is to <strong>drag each chart in the collection of charts to one of the rating buckets</strong> based on similarity with the refernce chart (5 for most similar, 1 for least similar).</li> 
+	<li>To inspect these charts closer, <strong>if you hover over them, they will be magnified.</strong></li>
+    <li>You need to drag all of the charts in the collection of charts to some bucket to complete this task. You <strong>can change your answer at any time by moving a chart from one bucket to another.</strong></li>
+    <li><strong>Once you are done</strong> with dragging all of the charts to some bucket and you are satisfied with your answer, <strong>click the Continue button</strong>. You will not be able to make further changes to your answer, but you can still hover over charts to magnify them and inspect them closer.</li>
+    <li>After you click Continue, <strong>several questions related to the task will appear</strong>. Once you answer all the questions, you can click <strong>Submit</strong> to finish the task.</li>
+    <li>Whenever you want to see the instructions during your assignment, you can </strong>click the Instruction tab at the top.</strong> You can click it again to hide it.</li>
 </ol>
 
 <hr>

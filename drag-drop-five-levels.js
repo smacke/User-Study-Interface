@@ -172,6 +172,7 @@ $(function() {
             $("#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable( "option", "disabled", true );
             $("#Questions").css("display", "block");
             $("#freeze" ).button().hide();
+            document.getElementById("DataCollection-container").style.display="none";
 
             $(".level-set").each(function(i,obj){
                 var idOfThis = obj.id;

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User study interface of similarity metrics</title>
+    <title>User Study Interface for Visual Similarity</title>
 
     <!--import library-->
     <link rel="stylesheet" href="lib/jquery-ui-1.12.0/jquery-ui.css" />
@@ -18,7 +18,7 @@
 <div id="container">
 
     <div id="accordion">
-        <h3>Instruction</h3>
+        <h3>Instructions</h3>
         <div id="instruction">
             <object data="instruction.html" width="100%" height="600px"></object>
         </div>
@@ -27,12 +27,12 @@
     <hr>
 
     <div id="Query">
-        <b>Query</b><br>
+        <b>Reference Chart</b><br>
         <div id="query-chart"></div>
     </div>
 
     <div id="five-levels">
-        <b>Similarity block (1 for least similar; 5 for most similar)</b><br>
+        <b>Buckets (5 for most similar, 1 for least similar)</b><br>
         <div id="level5-container">
             5<br>
             <div id="level5" class="level-set"></div>
@@ -84,7 +84,6 @@
             <div id="TS1721" class="ts-dc"></div>
             <div id="TS833" class="ts-dc"></div>
 
-
         </div>
     </div>
 
@@ -108,22 +107,22 @@
         <input type="radio" name="difficulty" value="4" id="q1-4"><label for="q1-4">Difficult</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="difficulty" value="5" id="q1-5"><label for="q1-5">Very Difficult</label>
         <br><br>
-        Q2. On a scale of 1 to 5 (1 being low confidence and 5 being high confidence), rate your confidence in reproducing the same result second time around ?<br>
-		<input type="radio" name="confidence" value="5" id="q2-5"><label for="q2-5">5</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="confidence" value="4" id="q2-4"><label for="q2-4">4</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="confidence" value="3" id="q2-3"><label for="q2-3">3</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="confidence" value="2" id="q2-2"><label for="q2-2">2</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="confidence" value="1" id="q2-1"><label for="q2-1">1</label>
+        Q2. How doubtful or confident are you about the consistency of the task, i.e., you would assign a chart to the exact same bucket as before if you work with the interface again?<br>
+        <input type="radio" name="confidence" value="5" id="q2-5"><label for="q2-5">Very Confident</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="confidence" value="4" id="q2-4"><label for="q2-4">Confident</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="confidence" value="3" id="q2-3"><label for="q2-3">Neutral</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="confidence" value="2" id="q2-2"><label for="q2-2">Doubtful</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="confidence" value="1" id="q2-1"><label for="q2-1">Very Doubtful</label>
         <br><br>
         Q3. What features did you consider while rating the similarity of a chart in the <strong>Collection</strong> to the <strong>Reference</strong>?<br>
         <textarea name="features" rows="5" cols="50" ></textarea>
         <br><br>
         Q4. For each of the squares in the <strong>Similarity</strong> block, summarize the features of the charts it contains:<br>
-        Square 5: <textarea name="bin5-features" rows="2" cols="50" ></textarea><br>
-        Square 4: <textarea name="bin4-features" rows="2" cols="50" ></textarea><br>
-        Square 3: <textarea name="bin3-features" rows="2" cols="50" ></textarea><br>
-        Square 2: <textarea name="bin2-features" rows="2" cols="50" ></textarea><br>
-        Square 1: <textarea name="bin1-features" rows="2" cols="50" ></textarea><br>
+        Bucket 5: <textarea name="bin5-features" rows="2" cols="50" ></textarea><br>
+        Bucket 4: <textarea name="bin4-features" rows="2" cols="50" ></textarea><br>
+        Bucket 3: <textarea name="bin3-features" rows="2" cols="50" ></textarea><br>
+        Bucket 2: <textarea name="bin2-features" rows="2" cols="50" ></textarea><br>
+        Bucket 1: <textarea name="bin1-features" rows="2" cols="50" ></textarea><br>
 
         <br><b>Survey</b><br>
         S1. Your gender:<br>

@@ -3,26 +3,77 @@
  */
 
 
-
 $(function() {
 
-    dataset_name = $("#dataset_name").val();
-    query_index = $("#query_index").val();
+    $("#container").load("template.html",function(responseTxt, statusTxt, xhr){
+        if(statusTxt == "success") {
+            var dataset_name = $("#DatasetName").val();
+            var query_index = $("#QueryIndex").val();
 
-    hoverEnabled = true;
-
-    createDygraphs();
-
-    $( "#accordion" ).accordion({
-        collapsible: true,
-        heightStyle: "content",
-        active: false
+            var path = "data/".concat(dataset_name, "/query", query_index, "/TSIndexList.txt");
+            $("#DataCollection").load(path,function(responseTxt, statusTxt, xhr){
+                if(statusTxt == "success")
+                    initialize(dataset_name, query_index);
+                if(statusTxt == "error")
+                    alert("Error: " + xhr.status + ": " + xhr.statusText);
+            });
+        }
+        if(statusTxt == "error") {
+            alert("Error: " + xhr.status + ": " + xhr.statusText);
+        }
     });
+});
+
+function initialize(dataset_name, query_index) {
+
+    $("#dataset_name").val(dataset_name);
+    $("#query_index").val(query_index);
 
     $(".tools").change(function() {
         if (this.value === "other") {
             $("#other-text").toggle();
         }
+    });
+
+    $( "#submit" ).click(function(event) {
+        $("#other-checkbox").val("other-".concat($("#other-text").val()));
+        var toolsList = [];
+        $.each($("input[name='tools']:checked"), function(){
+            toolsList.push($(this).val());
+        });
+        $("#tools_answer").val(toolsList.join(";"));
+        $("#other-checkbox").val("other");
+
+        var features = document.forms["Questions"]["features"].value;
+        var bin1_features = document.forms["Questions"]["bin1-features"].value;
+        var bin2_features = document.forms["Questions"]["bin2-features"].value;
+        var bin3_features = document.forms["Questions"]["bin3-features"].value;
+        var bin4_features = document.forms["Questions"]["bin4-features"].value;
+        var bin5_features = document.forms["Questions"]["bin5-features"].value;
+        if( $('input[name=difficulty]:checked').length == 0 ||
+            $('input[name=confidence]:checked').length == 0 ||
+            features == null || features == "" ||
+            bin1_features == null || bin1_features == "" ||
+            bin2_features == null || bin2_features == "" ||
+            bin3_features == null || bin3_features == "" ||
+            bin4_features == null || bin4_features == "" ||
+            bin5_features == null || bin5_features == "" ||
+            $('input[name=gender]:checked').length == 0 ||
+            $('input[name=experience]:checked').length == 0 ||
+            $('input[name=tools]:checked').length == 0 ) {
+            alert("All questions and survey must be answered!");
+            event.preventDefault();
+        }
+    });
+
+    hoverEnabled = true;
+
+    createDygraphs(dataset_name, query_index);
+
+    $( "#accordion" ).accordion({
+        collapsible: true,
+        heightStyle: "content",
+        active: false
     });
 
     $(".ts-dc").hover(
@@ -35,12 +86,12 @@ $(function() {
                 if ( ( 2 * x ) > $("#container").width() ) {
                     $(" #full").css({top:y+10, left: (x-300-10),height:200, width:300 }).show();
                     var tsName = $(this).attr("id");
-                    largeCharts(tsName);
+                    largeCharts(tsName, dataset_name, query_index);
                 }
                 else {
                     $(" #full").css({top:y+10, left:x+10,height:200, width:300}).show();
                     var tsName = $(this).attr("id");
-                    largeCharts(tsName);
+                    largeCharts(tsName, dataset_name, query_index);
                 }
             }
         },
@@ -98,12 +149,12 @@ $(function() {
                                 // $(" #full").css({top:y+1, left: (x-300-1) }).show();
                                 $(" #full").css({top:y+10, left: (x-300-10),height:200, width:300 }).show();
                                 var tsName = $(this).attr("id");
-                                largeCharts(tsName);
+                                largeCharts(tsName, dataset_name, query_index);
                             }
                             else {
                                 $(" #full").css({top:y+10, left:x+10,height:200, width:300}).show();
                                 var tsName = $(this).attr("id");
-                                largeCharts(tsName);
+                                largeCharts(tsName, dataset_name, query_index);
                             }
                         }
                     },
@@ -143,12 +194,12 @@ $(function() {
                                 // $(" #full").css({top:y+1, left: (x-300-1) }).show();
                                 $(" #full").css({top:y+1, left: (x-300-1),height:200, width:300 }).show();
                                 var tsName = $(this).attr("id");
-                                largeCharts(tsName);
+                                largeCharts(tsName, dataset_name, query_index);
                             }
                             else {
                                 $(" #full").css({top:y+1, left:x+1,height:200, width:300}).show();
                                 var tsName = $(this).attr("id");
-                                largeCharts(tsName);
+                                largeCharts(tsName, dataset_name, query_index);
                             }
                         }
                     },
@@ -184,39 +235,9 @@ $(function() {
         }
     });
 
-    $( "#submit" ).click(function(event) {
-        $("#other-checkbox").val(document.getElementById("other-text").value);
-        var toolsList = [];
-        $.each($("input[name='tools']:checked"), function(){
-            toolsList.push($(this).val());
-        });
-        $("#tools_answer").val(toolsList.join(";"));
+}
 
-        var features = document.forms["Questions"]["features"].value;
-        var bin1_features = document.forms["Questions"]["bin1-features"].value;
-        var bin2_features = document.forms["Questions"]["bin2-features"].value;
-        var bin3_features = document.forms["Questions"]["bin3-features"].value;
-        var bin4_features = document.forms["Questions"]["bin4-features"].value;
-        var bin5_features = document.forms["Questions"]["bin5-features"].value;
-        if( $('input[name=difficulty]:checked').length == 0 ||
-            $('input[name=confidence]:checked').length == 0 ||
-            features == null || features == "" ||
-            bin1_features == null || bin1_features == "" ||
-            bin2_features == null || bin2_features == "" ||
-            bin3_features == null || bin3_features == "" ||
-            bin4_features == null || bin4_features == "" ||
-            bin5_features == null || bin5_features == "" ||
-            $('input[name=gender]:checked').length == 0 ||
-            $('input[name=experience]:checked').length == 0 ||
-            $('input[name=tools]:checked').length == 0 ) {
-            alert("All questions and survey must be answered!");
-            event.preventDefault();
-        }
-    });
-
-});
-
-function createDygraphs() {
+function createDygraphs(dataset_name, query_index) {
 
     fullDygraph = new Dygraph(
         document.getElementById("full"),
@@ -240,7 +261,7 @@ function createDygraphs() {
         document.getElementById("query-chart"),
         "data/".concat(dataset_name, "/query", query_index, "/query.csv"),
         {
-            title: dataset_name.concat("-query",query_index),
+            title: "".concat(dataset_name, "-query",query_index),
             drawGrid:false,
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
@@ -278,7 +299,7 @@ function createDygraphs() {
 }
 
 function tsName2tsIndex(tsName) {
-    for ( i = 0; i < tsNameArray.length; i++) {
+    for ( var i = 0; i < tsNameArray.length; i++) {
         if (tsName == tsNameArray[i]) {
             return i;
         }
@@ -286,7 +307,7 @@ function tsName2tsIndex(tsName) {
     return 0;
 }
 
-function largeCharts(tsName) {
+function largeCharts(tsName, dataset_name, query_index) {
     // fullDygraph.destroy();
     fullDygraph = new Dygraph(
         document.getElementById("full"),

@@ -10,7 +10,7 @@ $(function() {
             var dataset_name = $("#DatasetName").val();
             var query_index = $("#QueryIndex").val();
 
-            var path = "data/".concat(dataset_name, "/query", query_index, "/TSIndexList.txt");
+            var path = "data/".concat(dataset_name, "/", query_index, "/TSIndexList.txt");
             $("#DataCollection").load(path,function(responseTxt, statusTxt, xhr){
                 if(statusTxt == "success")
                     initialize(dataset_name, query_index);
@@ -241,7 +241,7 @@ function createDygraphs(dataset_name, query_index) {
 
     fullDygraph = new Dygraph(
         document.getElementById("full"),
-        "data/".concat(dataset_name, "/query", query_index, "/query.csv"),
+        "data/".concat(dataset_name, "/", query_index, "/query.csv"),
         {
             drawGrid:false,
             labelsDivWidth:0,
@@ -259,9 +259,9 @@ function createDygraphs(dataset_name, query_index) {
     tsNameArray[0] = "query-chart";
     tsDygraphs[0] = new Dygraph(
         document.getElementById("query-chart"),
-        "data/".concat(dataset_name, "/query", query_index, "/query.csv"),
+        "data/".concat(dataset_name, "/", query_index, "/query.csv"),
         {
-            title: "".concat(dataset_name, "-query",query_index),
+            title: "".concat(dataset_name, "-",query_index),
             drawGrid:false,
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,
@@ -279,7 +279,7 @@ function createDygraphs(dataset_name, query_index) {
         tsDygraphs[index+1] = new Dygraph(
             // document.getElementById(tsName),
             this,
-            "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
+            "data/".concat(dataset_name, "/", query_index, "/", tsName, ".csv"),
             {
                 // title: tsName,
                 // titleHeight: 26,
@@ -311,7 +311,7 @@ function largeCharts(tsName, dataset_name, query_index) {
     // fullDygraph.destroy();
     fullDygraph = new Dygraph(
         document.getElementById("full"),
-        "data/".concat(dataset_name, "/query", query_index, "/", tsName, ".csv"),
+        "data/".concat(dataset_name, "/", query_index, "/", tsName, ".csv"),
         {
             //title:tsName,
             drawGrid:false,

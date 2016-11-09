@@ -51,71 +51,28 @@
 
 <hr/>
 <div>
-    <p>Cluster centers by k-Shape as queries</p>
+    <p>k-Shape averaging centers as queries - diverse datasets</p>
 </div>
 
-<div class="oneDataset">
-    <form target="_blank" action="50words-centroid12.html">
-        <input type="submit" value="50words-centroid12">
+<div class="oneDataset" id="50words">
+    <form target="_blank" action="50words-centroid1.html">
+        <input type="submit" value="50words-centroid1">
     </form>
-    <!--only 1 TS in this cluster-->
-    <!--<form target="_blank" action="50words-centroid30.html">-->
-        <!--<input type="submit" value="50words-centroid30">-->
-    <!--</form>-->
-    <form target="_blank" action="50words-centroid48.html">
-        <input type="submit" value="50words-centroid48">
+    <form target="_blank" action="50words-centroid3.html">
+        <input type="submit" value="50words-centroid3">
     </form>
-    <form target="_blank" action="50words-centroid50.html">
-        <input type="submit" value="50words-centroid50">
+    <form target="_blank" action="50words-centroid10.html">
+        <input type="submit" value="50words-centroid10">
     </form>
 </div>
 
-<div class="oneDataset">
-    <form target="_blank" action="CBF-centroid1.html">
-        <input type="submit" value="CBF-centroid1">
-    </form>
-    <form target="_blank" action="CBF-centroid2.html">
-        <input type="submit" value="CBF-centroid2">
-    </form>
-    <form target="_blank" action="CBF-centroid3.html">
-        <input type="submit" value="CBF-centroid3">
-    </form>
-</div>
-
-<div class="oneDataset">
-    <form target="_blank" action="synthetic_control-centroid1.html">
-        <input type="submit" value="synthetic_control-centroid1">
-    </form>
-    <form target="_blank" action="synthetic_control-centroid2.html">
-        <input type="submit" value="synthetic_control-centroid2">
-    </form>
-    <form target="_blank" action="synthetic_control-centroid3.html">
-        <input type="submit" value="synthetic_control-centroid3">
-    </form>
-    <form target="_blank" action="synthetic_control-centroid5.html">
-        <input type="submit" value="synthetic_control-centroid5">
-    </form>
-    <form target="_blank" action="synthetic_control-centroid6.html">
-        <input type="submit" value="synthetic_control-centroid6">
-    </form>
-</div>
-
-<div class="oneDataset">
+<div class="oneDataset" id="ToeSegmentation2">
     <form target="_blank" action="ToeSegmentation2-centroid1.html">
         <input type="submit" value="ToeSegmentation2-centroid1">
     </form>
 </div>
 
-<div class="oneDataset">
-    <form target="_blank" action="Two_Patterns-centroid3.html">
-        <input type="submit" value="Two_Patterns-centroid3">
-    </form>
-    <form target="_blank" action="Two_Patterns-centroid4.html">
-        <input type="submit" value="Two_Patterns-centroid4">
-    </form>
-</div>
-
-<div class="oneDataset">
+<div class="oneDataset" id="WormsTwoClass">
     <form target="_blank" action="WormsTwoClass-centroid1.html">
         <input type="submit" value="WormsTwoClass-centroid1">
     </form>
@@ -124,7 +81,7 @@
     </form>
 </div>
 
-<div class="oneDataset">
+<div class="oneDataset" id="uWaveGestureLibrary_X">
     <form target="_blank" action="uWaveGestureLibrary_X-centroid6.html">
         <input type="submit" value="uWaveGestureLibrary_X-centroid6">
     </form>
@@ -139,7 +96,7 @@
     </form>
 </div>
 
-<div class="oneDataset">
+<div class="oneDataset" id="Worms">
     <form target="_blank" action="Worms-centroid1.html">
         <input type="submit" value="Worms-centroid1">
     </form>
@@ -159,25 +116,63 @@
 <div style="clear:both"></div>
 <hr/>
 <div>
+    <p>k-Shape averaging centers as queries - non-diverse datasets (discard)</p>
+</div>
+
+<div class="oneDataset" id="CBF">
+    <form target="_blank" action="CBF-centroid1.html">
+        <input type="submit" value="CBF-centroid1">
+    </form>
+    <form target="_blank" action="CBF-centroid2.html">
+        <input type="submit" value="CBF-centroid2">
+    </form>
+    <form target="_blank" action="CBF-centroid3.html">
+        <input type="submit" value="CBF-centroid3">
+    </form>
+</div>
+
+<div class="oneDataset" id="synthetic_control">
+    <form target="_blank" action="synthetic_control-centroid1.html">
+        <input type="submit" value="synthetic_control-centroid1">
+    </form>
+    <form target="_blank" action="synthetic_control-centroid2.html">
+        <input type="submit" value="synthetic_control-centroid2">
+    </form>
+    <form target="_blank" action="synthetic_control-centroid3.html">
+        <input type="submit" value="synthetic_control-centroid3">
+    </form>
+    <form target="_blank" action="synthetic_control-centroid5.html">
+        <input type="submit" value="synthetic_control-centroid5">
+    </form>
+    <form target="_blank" action="synthetic_control-centroid6.html">
+        <input type="submit" value="synthetic_control-centroid6">
+    </form>
+</div>
+
+<div class="oneDataset" id="Two_Patterns">
+    <form target="_blank" action="Two_Patterns-centroid3.html">
+        <input type="submit" value="Two_Patterns-centroid3">
+    </form>
+    <form target="_blank" action="Two_Patterns-centroid4.html">
+        <input type="submit" value="Two_Patterns-centroid4">
+    </form>
+</div>
+
+<!---->
+
+<div style="clear:both"></div>
+<hr/>
+<div>
     <p>Synthetic queries</p>
 </div>
 
-<div class="oneDataset">
-    <!--<form target="_blank" action="50words-query2.html">-->
-        <!--<input type="submit" value="50words-query2">-->
-    <!--</form>-->
+<div class="oneDataset" id="50words_old">
     <form target="_blank" action="50words-query2.html">
         <input type="submit" value="50words-query2">
     </form>
 </div>
 
-<div class="oneDataset">
-    <!--<form target="_blank" action="uWaveGestureLibrary_X-query1.html">-->
-        <!--<input type="submit" value="uWaveGestureLibrary_X-query1">-->
-    <!--</form>-->
-    <!--<form target="_blank" action="uWaveGestureLibrary_X-query2.html">-->
-        <!--<input type="submit" value="uWaveGestureLibrary_X-query2">-->
-    <!--</form>-->
+<div class="oneDataset" id="uWaveGestureLibrary_X_old">
     <form target="_blank" action="uWaveGestureLibrary_X-query1.html">
         <input type="submit" value="uWaveGestureLibrary_X-query1">
     </form>

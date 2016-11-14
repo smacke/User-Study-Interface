@@ -1,0 +1,15 @@
+datasetName,queryName,SumOfEachPairsCorrelation,SumOfCenterCorrelation,VectorVariance(inverse correlation)
+uWaveGestureLibrary_Y,centroid5,-0.65841,1.8738,516.4
+WormsTwoClass,centroid2,-0.65635,1.8674,516.3
+Worms,centroid4,-0.30753,2.0568,499.4
+50words,centroid10,-0.13684,2.1355,577.8
+uWaveGestureLibrary_X,centroid7,-0.085714,2.1197,670.7
+uWaveGestureLibrary_Z,centroid5,0.15273,2.1881,477.1
+uWaveGestureLibrary_X,centroid6,0.22807,2.3126,557
+Worms,centroid5,0.39216,2.2994,392
+ToeSegmentation2,centroid1,0.82559,2.5422,444.5
+Worms,centroid1,0.98775,2.5593,367.7
+WormsTwoClass,centroid1,1.0686,2.5825,364.4
+50words,centroid3,1.3298,2.7123,494.2
+Worms,centroid2,1.7929,2.7907,229.8
+50words,centroid1,3.9596,3.5341,344.3

@@ -6,10 +6,13 @@ Worms,centroid4,-0.30753,2.0568,499.4
 uWaveGestureLibrary_X,centroid7,-0.085714,2.1197,670.7
 uWaveGestureLibrary_Z,centroid5,0.15273,2.1881,477.1
 uWaveGestureLibrary_X,centroid6,0.22807,2.3126,557
+50words,query2,0.28346,2.3341,860.4
 Worms,centroid5,0.39216,2.2994,392
+uWaveGestureLibrary_X,query2,0.76383,2.5213,934.7
 ToeSegmentation2,centroid1,0.82559,2.5422,444.5
 Worms,centroid1,0.98775,2.5593,367.7
 WormsTwoClass,centroid1,1.0686,2.5825,364.4
 50words,centroid3,1.3298,2.7123,494.2
+uWaveGestureLibrary_X,query1,1.7579,2.7726,469.8
 Worms,centroid2,1.7929,2.7907,229.8
 50words,centroid1,3.9596,3.5341,344.3

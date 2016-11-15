@@ -1,8 +1,20 @@
-<b>
-    Finished. Thank you!
-</b>
-
 <?php
+// generate new index
+$file = fopen("UserResults/SubmitNumber.txt", "r") or die("Unable to open file!");
+$lastIndex = intval(fgets($file));
+fclose($file);
+
+$currentIndex = $lastIndex + 1;
+
+$file = fopen("UserResults/SubmitNumber.txt", "w") or die("Unable to open file!");
+fwrite($file, (string)$currentIndex);
+fclose($file);
+
+echo "Your index is:";
+echo $currentIndex;
+echo "<br><b>Finished. Thank you!</b>";
+///////////////////////
+
 function openFile() {
     $fileName = "UserResults/" . test_input($_POST["dataset_name"]) . "_" . test_input($_POST["query_index"]) . ".csv";
     $myfile = fopen($fileName, "a");
@@ -19,6 +31,10 @@ function openFile() {
 
 date_default_timezone_set("America/Chicago");
 $myfile = openFile();
+
+//Submit index
+fwrite($myfile,(string)$currentIndex);
+fwrite($myfile,",");
 
 //submit time
 fwrite($myfile,"Chicago Time: ");

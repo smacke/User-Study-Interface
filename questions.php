@@ -1,5 +1,6 @@
 <?php
-echo "<br><b>This query is done. Please go back to worksheet page.</b>";
+$userID = $_COOKIE['userID'];
+echo "<br>You have just finished <strong>Query ?</strong>.<br/>Now you may close this page and go back to Query Worksheet page.</br>";
 ///////////////////////
 
 function openFile() {

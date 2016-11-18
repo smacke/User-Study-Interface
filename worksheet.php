@@ -54,7 +54,7 @@ function randAgain() {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Query worksheet</title>
+    <title>Query Worksheet</title>
     <style type="text/css">
         body html { height:100%; width:100%;}
 

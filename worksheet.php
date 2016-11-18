@@ -1,6 +1,17 @@
 <?php
 $maxUsedTime = 200;
 
+// generate new index
+$file = fopen("UserResults/SubmitNumber.txt", "r") or die("Unable to open file!");
+$lastIndex = intval(fgets($file));
+fclose($file);
+
+$userID = $lastIndex + 1;
+
+$file = fopen("UserResults/SubmitNumber.txt", "w") or die("Unable to open file!");
+fwrite($file, (string)$userID);
+fclose($file);
+
 $queryUsedTime = array();
 $file = fopen("UserResults/QueryUsedTime.csv", "r") or die("Unable to open file!");
 while(! feof($file)) {
@@ -86,7 +97,11 @@ function randAgain() {
 
 <div class="title">
     <p><b>Query Worksheet of User Study</b></p>
-    Here you get 4 queries to work on. Please click the following buttons one by one. When you finish one query, you can go back to this page and continue.
+    Here you get 4 queries to work on. Please click the following buttons one by one.
+    <br/>
+    When you finish one query, you can go back to this page and continue.
+    <br/><br/>
+    <?php echo "Your user ID is: $userID"; ?>
 </div>
 
 <br/><br/>

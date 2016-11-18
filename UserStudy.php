@@ -1,3 +1,10 @@
+<?php
+$queryName = $_POST['queryName'];
+$queryNameExplode = explode('-', $queryName,2);
+$datasetName = $queryNameExplode[0];
+$queryIndex = $queryNameExplode[1];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +22,10 @@
 </head>
 <body>
 
-<input type="hidden" id="DatasetName"  value="50words" />
-<input type="hidden" id="QueryIndex" value="centroid10" />
+<?php
+echo "<input type=\"hidden\" id=\"DatasetName\"  value=\"$datasetName\" />";
+echo "<input type=\"hidden\" id=\"QueryIndex\" value=\"$queryIndex\" />";
+?>
 
 <div id="container"></div>
 

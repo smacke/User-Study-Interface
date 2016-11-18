@@ -1,5 +1,5 @@
 <?php
-echo "<br><b>Finished. Thank you!</b>";
+echo "<br><b>This query is done. Please go back to worksheet page.</b>";
 ///////////////////////
 
 function openFile() {

@@ -261,7 +261,7 @@ function createDygraphs(dataset_name, query_index) {
         document.getElementById("query-chart"),
         "data/".concat(dataset_name, "/", query_index, "/query.csv"),
         {
-            //title: "".concat(dataset_name, "-",query_index),
+            title: "".concat(dataset_name, "-",query_index),
             drawGrid:false,
             labelsDivWidth:0,
             interactionModel: Dygraph.Interaction.nonInteractiveModel_,

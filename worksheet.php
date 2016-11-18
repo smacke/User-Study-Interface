@@ -11,6 +11,9 @@ $userID = $lastIndex + 1;
 $file = fopen("UserResults/SubmitNumber.txt", "w") or die("Unable to open file!");
 fwrite($file, (string)$userID);
 fclose($file);
+setcookie('userID', $userID);
+
+
 
 $queryUsedTime = array();
 $file = fopen("UserResults/QueryUsedTime.csv", "r") or die("Unable to open file!");
@@ -78,14 +81,14 @@ function randAgain() {
         }
 
         .title {
-            text-align:center;
+            text-align: left;
             width:100%;
             font-size: 30px;
         }
 
         #buttonContainer {
             position: absolute;
-            left: 42%;
+            left: 40%;
             padding:20px;
             border: 20px;
          }
@@ -96,12 +99,14 @@ function randAgain() {
 <body>
 
 <div class="title">
-    <p><b>Query Worksheet of User Study</b></p>
+    <p style="text-align: center"><b>Query Worksheet of User Study</b></p>
     Here you get 4 queries to work on. Please click the following buttons one by one.
     <br/>
     When you finish one query, you can go back to this page and continue.
     <br/><br/>
-    <?php echo "Your user ID is: $userID"; ?>
+    NOTE: Please DO NOT refresh this page. If you do that, you will discard all you have done and receive a totally new survey.
+    <br/><br/>
+    <?php echo "<div style=\"text-align: center\"> Your user ID is: $userID </div>"; ?>
 </div>
 
 <br/><br/>
@@ -110,10 +115,15 @@ function randAgain() {
 <?php
 for($i = 0; $i < count($selectedQuery); ++$i) {
     $row = $selectedQuery[$i];
-    $query = $queryUsedTime[$row][0];
+    $queryName = $queryUsedTime[$row][0];
     $queryNo = $i + 1;
-    echo "<form target=\"_blank\" action=\"$query.html\">";
-    echo "<input type=\"submit\" value=\"Query $queryNo\">";
+//    setcookie('queryName',$queryName);
+    echo "<form target=\"_blank\" action=\"UserStudy.php\" method=\"post\">";
+    echo "<input type=\"hidden\" name='queryName' value='$queryName'>";
+
+    //echo "<input type=\"submit\" value=\"Query $queryNo\">";
+    echo "<input type=\"submit\" value=\"$queryName\">";
+
     echo "</form>";
 }
 ?>

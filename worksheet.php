@@ -55,6 +55,9 @@ function randAgain() {
 <head>
     <meta charset="UTF-8">
     <title>Query Worksheet</title>
+    <link rel="stylesheet" href="lib/jquery-ui-1.12.0/jquery-ui.css" />
+    <script src="lib/jquery-ui-1.12.0/external/jquery/jquery.js"></script>
+    <script src="lib/jquery-ui-1.12.0/jquery-ui.min.js"></script>
     <style type="text/css">
         body html { height:100%; width:100%;}
 
@@ -106,7 +109,7 @@ function randAgain() {
     <br/><br/>
     NOTE: Please DO NOT refresh this page. If you do that, you will discard all you have done and receive a totally new survey.
     <br/><br/>
-    <?php echo "<div style=\"text-align: center\"> Your user ID is: $userID </div>"; ?>
+    <?php echo "<div style=\"text-align: center\"> Your user ID is: $userID</div>"; ?>
 </div>
 
 <br/><br/>
@@ -118,11 +121,12 @@ for($i = 0; $i < count($selectedQuery); ++$i) {
     $queryName = $queryUsedTime[$row][0];
     $queryNo = $i + 1;
 //    setcookie('queryName',$queryName);
-    echo "<form target=\"_blank\" action=\"UserStudy.php\" method=\"post\">";
+    echo "<form class=\"submitForm\" target=\"_blank\" action=\"UserStudy.php\" method=\"post\">";
     echo "<input type=\"hidden\" name='queryName' value='$queryName'>";
+    echo "<input type=\"hidden\" name='queryNo' value='$queryNo'>";
 
-    //echo "<input type=\"submit\" value=\"Query $queryNo\">";
-    echo "<input type=\"submit\" value=\"$queryName\">";
+    echo "<input type=\"submit\" value=\"Query $queryNo\">";
+    //echo "<input class=\"submitBtn\" type=\"submit\" value=\"$queryName\">";
 
     echo "</form>";
 }

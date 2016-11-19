@@ -1,5 +1,7 @@
 <?php
 $queryName = $_POST['queryName'];
+$queryNo = $_POST['queryNo'];
+setcookie('queryNo', $queryNo);
 $queryNameExplode = explode('-', $queryName,2);
 $datasetName = $queryNameExplode[0];
 $queryIndex = $queryNameExplode[1];

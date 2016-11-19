@@ -1,6 +1,7 @@
 <?php
 $userID = $_COOKIE['userID'];
-echo "<br>You have just finished <strong>Query ?</strong>.<br/>Now you may close this page and go back to Query Worksheet page.</br>";
+$queryNo = $_COOKIE['queryNo'];
+echo "<br>You have just finished <strong>Query $queryNo</strong>.<br/>Now you may close this page and go back to Query Worksheet page.</br>";
 ///////////////////////
 
 function openFile() {

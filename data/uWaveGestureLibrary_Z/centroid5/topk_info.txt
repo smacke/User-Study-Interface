@@ -1,0 +1,3 @@
+Manually choose K value based on DTW's rank list
+top K of this cluster = 50
+top K of other clusters = 30

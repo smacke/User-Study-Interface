@@ -142,26 +142,26 @@ fclose($file);
 
 <!---->
 
-<div style="clear:both"></div>
-<hr/>
-<div>
-    <p>Previous Synthetic queries</p>
-</div>
-
-<div class="oneDataset" id="50words_old">
-    <form target="_blank" action="50words-query2.html">
-        <input type="submit" value="50words-query2">
-    </form>
-</div>
-
-<div class="oneDataset" id="uWaveGestureLibrary_X_old">
-    <form target="_blank" action="uWaveGestureLibrary_X-query1.html">
-        <input type="submit" value="uWaveGestureLibrary_X-query1">
-    </form>
-    <form target="_blank" action="uWaveGestureLibrary_X-query2.html">
-        <input type="submit" value="uWaveGestureLibrary_X-query2">
-    </form>
-</div>
+<!--<div style="clear:both"></div>-->
+<!--<hr/>-->
+<!--<div>-->
+<!--    <p>Previous Synthetic queries</p>-->
+<!--</div>-->
+<!---->
+<!--<div class="oneDataset" id="50words_old">-->
+<!--    <form target="_blank" action="50words-query2.html">-->
+<!--        <input type="submit" value="50words-query2">-->
+<!--    </form>-->
+<!--</div>-->
+<!---->
+<!--<div class="oneDataset" id="uWaveGestureLibrary_X_old">-->
+<!--    <form target="_blank" action="uWaveGestureLibrary_X-query1.html">-->
+<!--        <input type="submit" value="uWaveGestureLibrary_X-query1">-->
+<!--    </form>-->
+<!--    <form target="_blank" action="uWaveGestureLibrary_X-query2.html">-->
+<!--        <input type="submit" value="uWaveGestureLibrary_X-query2">-->
+<!--    </form>-->
+<!--</div>-->
 
 </body>
 </html>

@@ -5,7 +5,7 @@ echo "<br>You have just finished <strong>Query $queryNo</strong>.<br/>Now you ma
 ///////////////////////
 
 function openFile() {
-    $fileName = "UserResults/" . test_input($_POST["dataset_name"]) . "-" . test_input($_POST["query_index"]) . ".csv";
+    $fileName = "UserResults/UserStudy/" . test_input($_POST["dataset_name"]) . "-" . test_input($_POST["query_index"]) . ".csv";
     $myfile = fopen($fileName, "a");
 
     if (flock($myfile, LOCK_EX)) {

@@ -69,15 +69,15 @@ fwrite($myfile, test_input($_POST["bin2-features"]));
 fwrite($myfile,",");
 
 fwrite($myfile, test_input($_POST["bin1-features"]));
-//fwrite($myfile,",");
-//
-//fwrite($myfile, test_input($_POST["gender"]));
-//fwrite($myfile,",");
-//
-//fwrite($myfile, test_input($_POST["experience"]));
-//fwrite($myfile,",");
-//
-//fwrite($myfile, test_input($_POST["tools_answer"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["gender"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["experience"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["tools_answer"]));
 
 fwrite($myfile,"\n");
 

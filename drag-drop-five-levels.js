@@ -29,20 +29,20 @@ function initialize(dataset_name, query_index) {
     $("#dataset_name").val(dataset_name);
     $("#query_index").val(query_index);
 
-    $(".tools").change(function() {
-        if (this.value === "other") {
-            $("#other-text").toggle();
-        }
-    });
+    // $(".tools").change(function() {
+    //     if (this.value === "other") {
+    //         $("#other-text").toggle();
+    //     }
+    // });
 
     $( "#submit" ).click(function(event) {
-        $("#other-checkbox").val("other-".concat($("#other-text").val()));
-        var toolsList = [];
-        $.each($("input[name='tools']:checked"), function(){
-            toolsList.push($(this).val());
-        });
-        $("#tools_answer").val(toolsList.join(";"));
-        $("#other-checkbox").val("other");
+        // $("#other-checkbox").val("other-".concat($("#other-text").val()));
+        // var toolsList = [];
+        // $.each($("input[name='tools']:checked"), function(){
+        //     toolsList.push($(this).val());
+        // });
+        // $("#tools_answer").val(toolsList.join(";"));
+        // $("#other-checkbox").val("other");
 
         var features = document.forms["Questions"]["features"].value;
         var bin1_features = document.forms["Questions"]["bin1-features"].value;
@@ -50,17 +50,19 @@ function initialize(dataset_name, query_index) {
         var bin3_features = document.forms["Questions"]["bin3-features"].value;
         var bin4_features = document.forms["Questions"]["bin4-features"].value;
         var bin5_features = document.forms["Questions"]["bin5-features"].value;
-        if( $('input[name=difficulty]:checked').length == 0 ||
+        if(
+            // $('input[name=gender]:checked').length == 0 ||
+            // $('input[name=experience]:checked').length == 0 ||
+            // $('input[name=tools]:checked').length == 0 ||
+
+            $('input[name=difficulty]:checked').length == 0 ||
             $('input[name=confidence]:checked').length == 0 ||
             features == null || features == "" ||
             bin1_features == null || bin1_features == "" ||
             bin2_features == null || bin2_features == "" ||
             bin3_features == null || bin3_features == "" ||
             bin4_features == null || bin4_features == "" ||
-            bin5_features == null || bin5_features == "" ||
-            $('input[name=gender]:checked').length == 0 ||
-            $('input[name=experience]:checked').length == 0 ||
-            $('input[name=tools]:checked').length == 0 ) {
+            bin5_features == null || bin5_features == "" ) {
             alert("All questions and survey must be answered!");
             event.preventDefault();
         }

@@ -33,7 +33,7 @@ div { opacity: 1; }
 
     #Questions { background-color:#fff1dc; width:100%; display:none;font-size:17px;}
 
-        #other-text { display:none; }
+        /*#other-text { display:none; }*/
 
         textarea { font-size: 17px; }
 

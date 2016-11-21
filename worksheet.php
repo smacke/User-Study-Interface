@@ -2,13 +2,13 @@
 $maxUsedTime = 200;
 
 // generate new index
-$file = fopen("UserResults/SubmitNumber.txt", "r") or die("Unable to open file!");
+$file = fopen("UserResults/UserID.txt", "r") or die("Unable to open file!");
 $lastIndex = intval(fgets($file));
 fclose($file);
 
 $userID = $lastIndex + 1;
 
-$file = fopen("UserResults/SubmitNumber.txt", "w") or die("Unable to open file!");
+$file = fopen("UserResults/UserID.txt", "w") or die("Unable to open file!");
 fwrite($file, (string)$userID);
 fclose($file);
 setcookie('userID', $userID);

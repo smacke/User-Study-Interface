@@ -87,9 +87,9 @@ function initialize(dataset_name, query_index) {
             $('#full div').hide();
         });
 
-    $( "#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable({
+    $( "#DataCollection, #level1, #level2, #level3, #level4" ).sortable({
         revert: 10,
-        connectWith: "#DataCollection, #level1, #level2, #level3, #level4, #level5",
+        connectWith: "#DataCollection, #level1, #level2, #level3, #level4",
 
         start: function() {
             // alert("drag begin!");
@@ -205,7 +205,7 @@ function initialize(dataset_name, query_index) {
             alert("All time series in Data collection must be classified!");
         }
         else {
-            $("#DataCollection, #level1, #level2, #level3, #level4, #level5" ).sortable( "option", "disabled", true );
+            $("#DataCollection, #level1, #level2, #level3, #level4" ).sortable( "option", "disabled", true );
             $("#Questions").css("display", "block");
             $("#freeze" ).button().hide();
             document.getElementById("DataCollection-container").style.display="none";

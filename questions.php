@@ -30,10 +30,7 @@ fwrite($myfile,"Chicago Time: ");
 fwrite($myfile, date("Y-m-d h:i:sa"));
 fwrite($myfile,",");
 
-//bin 5~1
-fwrite($myfile, test_input($_POST["level5_set"]));
-fwrite($myfile,",");
-
+//bin 4~1
 fwrite($myfile, test_input($_POST["level4_set"]));
 fwrite($myfile,",");
 

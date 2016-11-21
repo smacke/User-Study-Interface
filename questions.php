@@ -21,7 +21,7 @@ function openFile() {
 date_default_timezone_set("America/Chicago");
 $myfile = openFile();
 
-//Submit index
+//User ID
 fwrite($myfile,(string)$userID);
 fwrite($myfile,",");
 

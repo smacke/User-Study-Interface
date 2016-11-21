@@ -8,10 +8,35 @@
     <link rel="stylesheet" href="lib/jquery-ui-1.12.0/jquery-ui.css" />
     <script src="lib/jquery-ui-1.12.0/external/jquery/jquery.js"></script>
     <script src="lib/jquery-ui-1.12.0/jquery-ui.min.js"></script>
-    <script src="lib/dygraph-combined-dev.js"></script>
 
-    <script src="drag-drop-five-levels.js"></script>
-    <link rel="stylesheet" href="drag-drop-five-levels.css">
+    <script>
+        $(function() {
+            $("#other-text").toggle();
+
+            $(".tools").change(function() {
+                if (this.value === "other") {
+                    $("#other-text").toggle();
+                }
+            });
+
+            $( "#submit" ).click(function(event) {
+                $("#other-checkbox").val("other-".concat($("#other-text").val()));
+                var toolsList = [];
+                $.each($("input[name='tools']:checked"), function(){
+                    toolsList.push($(this).val());
+                });
+                $("#tools_answer").val(toolsList.join(";"));
+                $("#other-checkbox").val("other");
+
+                if($('input[name=gender]:checked').length == 0 ||
+                        $('input[name=experience]:checked').length == 0 ||
+                        $('input[name=tools]:checked').length == 0 ) {
+                    alert("All survey questions must be answered!");
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 

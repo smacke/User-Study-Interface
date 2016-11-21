@@ -86,7 +86,7 @@ function randAgain() {
         .title {
             text-align: left;
             width:100%;
-            font-size: 30px;
+            font-size: 20px;
         }
 
         #buttonContainer {
@@ -131,6 +131,14 @@ for($i = 0; $i < count($selectedQuery); ++$i) {
     echo "</form>";
 }
 ?>
+    <form class="survey" target="_blank" action="UserSurvey.html" method="post">
+        <input type="submit" value="User Survey">
+    </form>
+
+    <form class="Finish" target="_blank" action="Finish.php" method="post">
+        <input type="submit" value="I have finished all above.">
+    </form>
+
 </div>
 
 </body>

@@ -32,6 +32,12 @@ fwrite($myfile,",");
 fwrite($myfile, test_input($_POST["gender"]));
 fwrite($myfile,",");
 
+fwrite($myfile, test_input($_POST["age"]));
+fwrite($myfile,",");
+
+fwrite($myfile, test_input($_POST["department"]));
+fwrite($myfile,",");
+
 fwrite($myfile, test_input($_POST["experience"]));
 fwrite($myfile,",");
 

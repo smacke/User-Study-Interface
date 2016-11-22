@@ -44,22 +44,31 @@
 <div id="container">
     <form id="Survey" method="POST" action="survey.php">
         <br><b>Survey</b><br>
-        S1. Your gender:<br>
+        S1. Your Gender:<br>
         <input type="radio" name="gender" value="female" id="s1-1"><label for="s1-1">Female</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="gender" value="male" id="s1-2"><label for="s1-2">Male</label>&nbsp&nbsp&nbsp&nbsp
         <input type="radio" name="gender" value="other" id="s1-3"><label for="s1-3">Other</label>
         <br><br>
-        S2. How often do you work with data?<br>
-        <input type="radio" name="experience" value="1" id="s2-1"><label for="s2-1">Never</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="experience" value="2" id="s2-2"><label for="s2-2">Rarely (Yearly or Fewer)</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="experience" value="3" id="s2-3"><label for="s2-3">Sometimes (Monthly)</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="experience" value="4" id="s2-4"><label for="s2-4">Often (Weekly)</label>&nbsp&nbsp&nbsp&nbsp
-        <input type="radio" name="experience" value="5" id="s2-5"><label for="s2-5">Very Often(Daily)</label>
+        S2. Your Age:<br>
+        <input type="radio" name="age" value="18-23" id="s2-1"><label for="s2-1">18-23</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="age" value="24-30" id="s2-2"><label for="s2-2">24-30</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="age" value="31-36" id="s2-3"><label for="s2-3">31-36</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="age" value=">36" id="s2-4"><label for="s2-4">> 36</label>
         <br><br>
-        S3. Which of the following tools have you used for data analysis? (Please select all that apply.)<br>
-        <input type="checkbox" name="tools" class="tools" value="spreadsheets" id="s3-1"><label for="s3-1">Spreadsheets (like Excel, Google sheets, Numbers)</label><br>
-        <input type="checkbox" name="tools" class="tools" value="DataAnalysisLanguage" id="s3-2"><label for="s3-2">Data analytics language (like R, Matlab, python)</label><br>
-        <input type="checkbox" name="tools" class="tools" value="BI" id="s3-3"><label for="s3-3">Business analytics tools (like Tableau, Power BI)</label><br>
+        S3. Your Department:<br>
+        <textarea name="department" rows="2" cols="40" ></textarea>
+        <br><br>
+        S4. How often do you work with data?<br>
+        <input type="radio" name="experience" value="1" id="s4-1"><label for="s4-1">Never</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="2" id="s4-2"><label for="s4-2">Rarely (Yearly or Fewer)</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="3" id="s4-3"><label for="s4-3">Sometimes (Monthly)</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="4" id="s4-4"><label for="s4-4">Often (Weekly)</label>&nbsp&nbsp&nbsp&nbsp
+        <input type="radio" name="experience" value="5" id="s4-5"><label for="s4-5">Very Often(Daily)</label>
+        <br><br>
+        S5. Which of the following tools have you used for data analysis? (Please select all that apply.)<br>
+        <input type="checkbox" name="tools" class="tools" value="spreadsheets" id="s5-1"><label for="s5-1">Spreadsheets (like Excel, Google sheets, Numbers)</label><br>
+        <input type="checkbox" name="tools" class="tools" value="DataAnalysisLanguage" id="s5-2"><label for="s5-2">Scripting language (like R, Matlab, python)</label><br>
+        <input type="checkbox" name="tools" class="tools" value="BI" id="s5-3"><label for="s5-3">Business analytics tools (like Tableau, Power BI)</label><br>
         <input type="checkbox" name="tools" class="tools" value="other" id="other-checkbox"><label for="other-checkbox">Other</label>
         <input id="other-text" placeholder="please enter your tool" type="text"/>
         <input type="hidden" id="tools_answer" name="tools_answer" value="" />

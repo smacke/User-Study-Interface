@@ -41,7 +41,6 @@ function initialize(dataset_name, query_index) {
         var bin2_features = document.forms["Questions"]["bin2-features"].value;
         var bin3_features = document.forms["Questions"]["bin3-features"].value;
         var bin4_features = document.forms["Questions"]["bin4-features"].value;
-        var bin5_features = document.forms["Questions"]["bin5-features"].value;
         if(
             $('input[name=difficulty]:checked').length == 0 ||
             $('input[name=confidence]:checked').length == 0 ||
@@ -49,8 +48,7 @@ function initialize(dataset_name, query_index) {
             bin1_features == null || bin1_features == "" ||
             bin2_features == null || bin2_features == "" ||
             bin3_features == null || bin3_features == "" ||
-            bin4_features == null || bin4_features == "" ||
-            bin5_features == null || bin5_features == "" ) {
+            bin4_features == null || bin4_features == "" ) {
             alert("All questions must be answered!");
             event.preventDefault();
         }
@@ -111,7 +109,7 @@ function initialize(dataset_name, query_index) {
                 //userID, TSID, From, To, Millisecond from 1970.1.1
                 var currentDate1 = new Date();
                 var millisecond1 = currentDate1.getTime();
-                $("#dragDropLogs").val( $("#dragDropLogs").val() + userID + ',' + ui.item[0].id + ',' + bucket2index(ui.sender[0].id) + ',' + bucket2index(this.id) + ',' + millisecond1 + '\n');
+                $("#dragDropLogs").val( $("#dragDropLogs").val() + userID + ',' + $("#queryName").val() + ',' + ui.item[0].id + ',' + bucket2index(ui.sender[0].id) + ',' + bucket2index(this.id) + ',' + millisecond1 + '\n');
                 console.log($("#dragDropLogs").val());
 
                 $('#full').stop(true,true).hide();
@@ -163,7 +161,7 @@ function initialize(dataset_name, query_index) {
                 //userID, TSID, From, To, Millisecond from 1970.1.1
                 var currentDate2 = new Date();
                 var millisecond2 = currentDate2.getTime();
-                $("#dragDropLogs").val( $("#dragDropLogs").val() + userID + ',' + ui.item[0].id + ',' + bucket2index(ui.sender[0].id) + ',' + bucket2index(this.id) + ',' + millisecond2 + '\n');
+                $("#dragDropLogs").val( $("#dragDropLogs").val() + userID + ',' + $("#queryName").val() + ',' + ui.item[0].id + ',' + bucket2index(ui.sender[0].id) + ',' + bucket2index(this.id) + ',' + millisecond2 + '\n');
                 console.log($("#dragDropLogs").val());
 
                 ui.item.removeClass("ts-dc");

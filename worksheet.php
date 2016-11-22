@@ -31,18 +31,18 @@ for($i = 0; $i < count($selectedQuery); ++$i) {
         $tmp = rand(0, (count($queryUsedTime)-1));
     }
     $selectedQuery[$i] = $tmp;
-    $queryUsedTime[$tmp][1] = (string)(intval($queryUsedTime[$tmp][1]) + 1);
+//    $queryUsedTime[$tmp][1] = (string)(intval($queryUsedTime[$tmp][1]) + 1);
 }
 
-$file = fopen("UserResults/QueryUsedTime.csv", "w") or die("Unable to open file!");
-for($i = 0; $i < count($queryUsedTime); ++$i) {
-    $text = ($queryUsedTime[$i][0] . "," . $queryUsedTime[$i][1]);
-    if ($i < (count($queryUsedTime)-1) ) {
-        $text = $text . "\n";
-    }
-    fwrite($file, $text);
-}
-fclose($file);
+//$file = fopen("UserResults/QueryUsedTime.csv", "w") or die("Unable to open file!");
+//for($i = 0; $i < count($queryUsedTime); ++$i) {
+//    $text = ($queryUsedTime[$i][0] . "," . $queryUsedTime[$i][1]);
+//    if ($i < (count($queryUsedTime)-1) ) {
+//        $text = $text . "\n";
+//    }
+//    fwrite($file, $text);
+//}
+//fclose($file);
 
 // More rules of randAgain like only one time series from a similar bucket
 function randAgain() {

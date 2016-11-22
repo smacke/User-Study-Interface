@@ -4,7 +4,7 @@ $queryNo = $_COOKIE['queryNo'];
 ///////////////////////
 
 function openFile() {
-    $fileName = "UserResults/UserStudy/" . test_input($_POST["dataset_name"]) . "-" . test_input($_POST["query_index"]) . ".csv";
+    $fileName = "UserResults/UserStudy/" . $_POST["dataset_name"] . "-" . $_POST["query_index"] . ".csv";
     $myfile = fopen($fileName, "a");
 
     if (flock($myfile, LOCK_EX)) {
@@ -86,6 +86,41 @@ $fileID = fopen('UserResults/DragDropLogs.csv','a');
 fwrite($fileID, $_POST["dragDropLogs"]);
 fclose($fileID);
 
+
+$queryName = $_POST["dataset_name"] . "-" . $_POST["query_index"];
+/////////////////////////////////
+$queryUsedTime = array();
+$file = fopen("UserResults/QueryUsedTime.csv", "r") or die("Unable to open file!");
+while(! feof($file)) {
+    $queryUsedTime[] = fgetcsv($file);
+}
+fclose($file);
+
+for($i = 0; $i < count($queryUsedTime); ++$i) {
+//    $tmp = rand(0, (count($queryUsedTime)-1));
+//    while (intval($queryUsedTime[$tmp][1]) >= $maxUsedTime
+//        || in_array($tmp, $selectedQuery)
+//        || randAgain()) {
+//        $tmp = rand(0, (count($queryUsedTime)-1));
+//    }
+//    $selectedQuery[$i] = $tmp;
+    if ($queryUsedTime[$i][0] == $queryName) {
+        echo "$queryName<br>";
+        $queryUsedTime[$i][1] = (string)(intval($queryUsedTime[$i][1]) + 1);
+    }
+}
+
+$file = fopen("UserResults/QueryUsedTime.csv", "w") or die("Unable to open file!");
+for($i = 0; $i < count($queryUsedTime); ++$i) {
+    $text = ($queryUsedTime[$i][0] . "," . $queryUsedTime[$i][1]);
+    if ($i < (count($queryUsedTime)-1) ) {
+        $text = $text . "\n";
+    }
+    fwrite($file, $text);
+}
+fclose($file);
+///////////////////////////////////
+
 ?>
 
 <!DOCTYPE html>
@@ -94,7 +129,6 @@ fclose($fileID);
     <meta charset="UTF-8">
     <script>
         <?php
-        $queryName = test_input($_POST["dataset_name"]) . "-" . test_input($_POST["query_index"]);
         echo "console.log(\"Query name: $queryName\");";
         ?>
     </script>

@@ -103,11 +103,11 @@ function randAgain() {
 
 <div class="title">
     <p style="text-align: center"><b>Query Worksheet of User Study</b></p>
-    Here you get 4 queries to work on. Please click the following buttons one by one.
+    Here you get 10 queries and 1 survey to work on. Please click the following buttons one by one.
     <br/>
-    When you finish one query, you can go back to this page and continue.
+    When you finish one query, you may go back to this page and continue.
     <br/><br/>
-    NOTE: Please DO NOT refresh this page. If you do that, you will discard all you have done and receive a totally new survey.
+    NOTE: Please DO NOT refresh this page. If you do that, you will discard all you have done and receive a totally new user study.
     <br/><br/>
     <?php echo "<div style=\"text-align: center\"> Your user ID is: $userID</div>"; ?>
 </div>

@@ -28,6 +28,9 @@ $(function() {
 
 function initialize(dataset_name, query_index) {
 
+    userID = $("#userID").val();
+    console.log("Query Name:" + $("#queryName").val());
+
     $("#dataset_name").val(dataset_name);
     $("#query_index").val(query_index);
 
@@ -105,6 +108,12 @@ function initialize(dataset_name, query_index) {
 
         receive: function(event, ui) {
             if (this.id == "DataCollection") {
+                //userID, TSID, From, To, Millisecond from 1970.1.1
+                var currentDate1 = new Date();
+                var millisecond1 = currentDate1.getTime();
+                $("#dragDropLogs").val( $("#dragDropLogs").val() + userID + ',' + ui.item[0].id + ',' + bucket2index(ui.sender[0].id) + ',' + bucket2index(this.id) + ',' + millisecond1 + '\n');
+                console.log($("#dragDropLogs").val());
+
                 $('#full').stop(true,true).hide();
                 ui.item.removeClass("ts-level");
                 ui.item.addClass("ts-dc");
@@ -151,6 +160,12 @@ function initialize(dataset_name, query_index) {
                     });
             }
             else {
+                //userID, TSID, From, To, Millisecond from 1970.1.1
+                var currentDate2 = new Date();
+                var millisecond2 = currentDate2.getTime();
+                $("#dragDropLogs").val( $("#dragDropLogs").val() + userID + ',' + ui.item[0].id + ',' + bucket2index(ui.sender[0].id) + ',' + bucket2index(this.id) + ',' + millisecond2 + '\n');
+                console.log($("#dragDropLogs").val());
+
                 ui.item.removeClass("ts-dc");
                 ui.item.addClass("ts-level");
                 ui.item.unbind('mouseenter mouseleave');
@@ -158,7 +173,7 @@ function initialize(dataset_name, query_index) {
                     var index = tsName2tsIndex(ui.item.attr("id"));
                     // alert(index.toString());
                     tsDygraphs[index].updateOptions({
-                        title:null,
+                        //title:null,
                         // xAxisLabelWidth:0,
                         // yAxisLabelWidth:0
                         axes: {
@@ -264,7 +279,7 @@ function createDygraphs(dataset_name, query_index) {
             this,
             "data/".concat(dataset_name, "/", query_index, "/", tsName, ".csv"),
             {
-                // title: tsName,
+                //title: tsName,
                 // titleHeight: 26,
                 drawGrid:false,
                 labelsDivWidth:0,
@@ -309,4 +324,17 @@ function largeCharts(tsName, dataset_name, query_index) {
             }
         }
     );
+}
+
+function bucket2index(name) {
+    if (name == "DataCollection")
+        return 0;
+    else if(name == "level1")
+        return 1;
+    else if(name == "level2")
+        return 2;
+    else if(name == "level3")
+        return 3;
+    else
+        return 4;
 }

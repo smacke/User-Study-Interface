@@ -1,4 +1,5 @@
 <?php
+$userID = $_COOKIE['userID'];
 $queryName = $_POST['queryName'];
 $queryNo = $_POST['queryNo'];
 setcookie('queryNo', $queryNo);
@@ -27,6 +28,8 @@ $queryIndex = $queryNameExplode[1];
 <?php
 echo "<input type=\"hidden\" id=\"DatasetName\"  value=\"$datasetName\" />";
 echo "<input type=\"hidden\" id=\"QueryIndex\" value=\"$queryIndex\" />";
+echo "<input type=\"hidden\" id=\"userID\" value=\"$userID\" />";
+echo "<input type=\"hidden\" id=\"queryName\" value=\"$queryName\" />";
 ?>
 
 <div id="container"></div>

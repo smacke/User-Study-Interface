@@ -1,7 +1,6 @@
 <?php
 $userID = $_COOKIE['userID'];
 $queryNo = $_COOKIE['queryNo'];
-echo "<br>You have just finished <strong>Query $queryNo</strong>.<br/>Now you may close this page and go back to Query Worksheet page.</br>";
 ///////////////////////
 
 function openFile() {
@@ -16,6 +15,21 @@ function openFile() {
         sleep(1);
         return openFile();
     }
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+
+    $order = array("\n", "\r");
+    $replace = "\t";
+    $data = str_replace($order, $replace, $data);
+
+    $order = (",");
+    $replace = ";";
+    $data = str_replace($order, $replace, $data);
+    return $data;
 }
 
 date_default_timezone_set("America/Chicago");
@@ -68,18 +82,26 @@ fwrite($myfile,"\n");
 flock($myfile, LOCK_UN);
 fclose($myfile);
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+$fileID = fopen('UserResults/DragDropLogs.csv','a');
+fwrite($fileID, $_POST["dragDropLogs"]);
+fclose($fileID);
 
-    $order = array("\n", "\r");
-    $replace = "\t";
-    $data = str_replace($order, $replace, $data);
-
-    $order = (",");
-    $replace = ";";
-    $data = str_replace($order, $replace, $data);
-    return $data;
-}
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script>
+        <?php
+        $queryName = test_input($_POST["dataset_name"]) . "-" . test_input($_POST["query_index"]);
+        echo "console.log(\"Query name: $queryName\");";
+        ?>
+    </script>
+</head>
+<body>
+<?php
+echo "<br>You have just finished <strong>Query $queryNo</strong>.<br/>Now you may close this page and go back to Query Worksheet page.</br>";
+?>
+</body>
+</html>

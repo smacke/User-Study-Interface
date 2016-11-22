@@ -135,9 +135,9 @@ for($i = 0; $i < count($selectedQuery); ++$i) {
         <input type="submit" value="User Survey">
     </form>
 
-    <form class="Finish" target="_blank" action="Finish.php" method="post">
-        <input type="submit" value="I have finished all above.">
-    </form>
+<!--    <form class="Finish" target="_blank" action="Finish.php" method="post">-->
+<!--        <input type="submit" value="I have finished all above.">-->
+<!--    </form>-->
 
 </div>
 

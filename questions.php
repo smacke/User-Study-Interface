@@ -105,7 +105,7 @@ for($i = 0; $i < count($queryUsedTime); ++$i) {
 //    }
 //    $selectedQuery[$i] = $tmp;
     if ($queryUsedTime[$i][0] == $queryName) {
-        echo "$queryName<br>";
+//        echo "$queryName<br>";
         $queryUsedTime[$i][1] = (string)(intval($queryUsedTime[$i][1]) + 1);
     }
 }

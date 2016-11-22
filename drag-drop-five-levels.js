@@ -33,6 +33,7 @@ function initialize(dataset_name, query_index) {
 
     $("#dataset_name").val(dataset_name);
     $("#query_index").val(query_index);
+    $("#queryNo").val($("#pre-queryNo").val());
 
     $( "#submit" ).click(function(event) {
 

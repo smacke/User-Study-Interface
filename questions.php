@@ -1,6 +1,6 @@
 <?php
 $userID = $_COOKIE['userID'];
-$queryNo = $_COOKIE['queryNo'];
+$queryNo = $_POST['queryNo'];
 ///////////////////////
 
 function openFile() {

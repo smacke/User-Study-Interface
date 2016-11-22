@@ -1,5 +1,5 @@
 <?php
-$maxUsedTime = 200;
+$maxUsedTime = 10;
 
 // generate new index
 $file = fopen("UserResults/UserID.txt", "r") or die("Unable to open file!");
@@ -22,7 +22,7 @@ while(! feof($file)) {
 }
 fclose($file);
 
-$selectedQuery = array(-1,-1,-1,-1);
+$selectedQuery = array(-1,-1,-1,-1,-1,-1,-1,-1,-1,-1);
 for($i = 0; $i < count($selectedQuery); ++$i) {
     $tmp = rand(0, (count($queryUsedTime)-1));
     while (intval($queryUsedTime[$tmp][1]) >= $maxUsedTime

@@ -18,7 +18,10 @@ setcookie('userID', $userID);
 $queryUsedTime = array();
 $file = fopen("UserResults/QueryUsedTime.csv", "r") or die("Unable to open file!");
 while(! feof($file)) {
-    $queryUsedTime[] = fgetcsv($file);
+    $tmp = fgetcsv($file);
+    if ($tmp[0] != '') {
+        $queryUsedTime[] = $tmp;
+    }
 }
 fclose($file);
 
@@ -126,7 +129,7 @@ for($i = 0; $i < count($selectedQuery); ++$i) {
     echo "<input type=\"hidden\" name='queryNo' value='$queryNo'>";
 
     echo "<input type=\"submit\" value=\"Query $queryNo\">";
-    //echo "<input class=\"submitBtn\" type=\"submit\" value=\"$queryName\">";
+//    echo "<input type=\"submit\" value=\"$queryName\">";
 
     echo "</form>";
 }

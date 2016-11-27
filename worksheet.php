@@ -106,7 +106,7 @@ function randAgain() {
 
 <div class="title">
     <p style="text-align: center"><b>Query Worksheet of User Study</b></p>
-    Here you get 10 queries and 1 survey to work on. Please click the following buttons one by one.
+    Here you get 8 queries and 1 survey to work on. Please click the following buttons one by one.
     <br/>
     When you finish one query, you may go back to this page and continue.
     <br/><br/>

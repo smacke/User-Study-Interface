@@ -25,17 +25,17 @@ while(! feof($file)) {
 }
 fclose($file);
 
-$selectedQuery = array(-1,-1,-1,-1,-1,-1,-1,-1);
-for($i = 0; $i < count($selectedQuery); ++$i) {
-    $tmp = rand(0, (count($queryUsedTime)-1));
-    while (intval($queryUsedTime[$tmp][1]) >= $maxUsedTime
-        || in_array($tmp, $selectedQuery)
-        || randAgain()) {
-        $tmp = rand(0, (count($queryUsedTime)-1));
-    }
-    $selectedQuery[$i] = $tmp;
-//    $queryUsedTime[$tmp][1] = (string)(intval($queryUsedTime[$tmp][1]) + 1);
-}
+$selectedQuery = array(1,3,4,6,11,14,17,18);
+//for($i = 0; $i < count($selectedQuery); ++$i) {
+//    $tmp = rand(0, (count($queryUsedTime)-1));
+//    while (intval($queryUsedTime[$tmp][1]) >= $maxUsedTime
+//        || in_array($tmp, $selectedQuery)
+//        || randAgain()) {
+//        $tmp = rand(0, (count($queryUsedTime)-1));
+//    }
+//    $selectedQuery[$i] = $tmp;
+////    $queryUsedTime[$tmp][1] = (string)(intval($queryUsedTime[$tmp][1]) + 1);
+//}
 
 //$file = fopen("UserResults/QueryUsedTime.csv", "w") or die("Unable to open file!");
 //for($i = 0; $i < count($queryUsedTime); ++$i) {

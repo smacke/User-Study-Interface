@@ -1,5 +1,5 @@
 <?php
-$maxUsedTime = 8;
+$maxUsedTime = 9999;
 
 // generate new index
 $file = fopen("UserResults/UserID.txt", "r") or die("Unable to open file!");
@@ -25,27 +25,33 @@ while(! feof($file)) {
 }
 fclose($file);
 
-$selectedQuery = array(1,3,4,6,11,14,17,18);
-//for($i = 0; $i < count($selectedQuery); ++$i) {
-//    $tmp = rand(0, (count($queryUsedTime)-1));
-//    while (intval($queryUsedTime[$tmp][1]) >= $maxUsedTime
-//        || in_array($tmp, $selectedQuery)
-//        || randAgain()) {
-//        $tmp = rand(0, (count($queryUsedTime)-1));
-//    }
-//    $selectedQuery[$i] = $tmp;
-////    $queryUsedTime[$tmp][1] = (string)(intval($queryUsedTime[$tmp][1]) + 1);
-//}
 
-//$file = fopen("UserResults/QueryUsedTime.csv", "w") or die("Unable to open file!");
-//for($i = 0; $i < count($queryUsedTime); ++$i) {
-//    $text = ($queryUsedTime[$i][0] . "," . $queryUsedTime[$i][1]);
-//    if ($i < (count($queryUsedTime)-1) ) {
-//        $text = $text . "\n";
-//    }
-//    fwrite($file, $text);
-//}
-//fclose($file);
+if ($userID == 14)
+    $selectedQuery = array(1, 2, 4, 6, 7, 9, 16, 18);
+elseif ($userID == 15)
+    $selectedQuery = array(2, 3, 4, 5, 7, 9, 11, 13);
+elseif ($userID == 16)
+    $selectedQuery = array(8, 9, 11, 12, 13, 15, 17, 18);
+elseif ($userID == 17)
+    $selectedQuery = array(0, 1, 5, 10, 11, 13, 15, 18);
+elseif ($userID == 18)
+    $selectedQuery = array(0, 2, 7, 8, 9, 12, 13, 15);
+elseif ($userID == 19)
+    $selectedQuery = array(0, 1, 7, 8, 9, 12, 13, 15);
+elseif ($userID == 20)
+    $selectedQuery = array(1, 2, 7, 9, 10, 12, 13, 15);
+else {
+    $selectedQuery = array(-1, -1, -1, -1, -1, -1, -1, -1);
+    for($i = 0; $i < count($selectedQuery); ++$i) {
+        $tmp = rand(0, (count($queryUsedTime)-1));
+        while (intval($queryUsedTime[$tmp][1]) >= $maxUsedTime
+            || in_array($tmp, $selectedQuery)
+            || randAgain()) {
+            $tmp = rand(0, (count($queryUsedTime)-1));
+        }
+        $selectedQuery[$i] = $tmp;
+    }
+}
 
 // More rules of randAgain like only one time series from a similar bucket
 function randAgain() {

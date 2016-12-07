@@ -3,3 +3,4 @@
 15,Chicago Time: 2016-12-02 05:29:35pm,TS164,,TS85;TS181;TS143,TS79;TS197;TS194;TS209;TS175;TS178;TS180;TS26;TS56,4,2,Trend,first decrease then increase,None,relative decreasing,too noise and the general trend is wrong
 16,Chicago Time: 2016-12-02 05:50:36pm,,TS164;TS85;TS181;TS178,TS26;TS194;TS143,TS209;TS79;TS56;TS175;TS180;TS197,4,2,Trend matching,N/A,Matching trend with fewest errors,Mismatch in trend or large errors in matching,Complete mismatch in trend
 16,Chicago Time: 2016-12-02 05:54:31pm,TS164,TS85;TS26;TS194;TS209,,TS181;TS79;TS180;TS56;TS178;TS143;TS197;TS175,4,1,Comparing the correlation between minima/maxima,Best correlation,Somewhat correlated,N/A,Least correlated
+17,Chicago Time: 2016-12-07 11:20:58am,,TS164,TS79;TS143;TS85;TS209,TS26;TS180;TS175;TS197;TS194;TS56;TS178;TS181,4,3,Direction of chart flow. Overall shape of chart,none,similar flow and shape,similar flow,different flow and shape
